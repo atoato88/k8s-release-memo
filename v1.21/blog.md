@@ -128,4 +128,4 @@ Kubernetes 1.21は[GitHubからダウンロード](https://github.com/kubernetes
 - より多くのKubernetesに関わる出来事は[ブログ](https://kubernetes.io/blog/)を読んでください。
 - [Kubernetes Release Team](https://github.com/kubernetes/sig-release/tree/master/release-team)についてより知ってください。
 
-
+© 2021 The Kubernetes Authors | Documentation Distributed under CC BY 4.0
