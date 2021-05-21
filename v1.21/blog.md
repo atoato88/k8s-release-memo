@@ -3,7 +3,9 @@
 
 ---
 
-# [Blog](https://kubernetes.io/blog/2021/04/08/kubernetes-1-21-release-announcement/)より
+# Kubernetes Blog より
+
+Original Post: https://kubernetes.io/blog/2021/04/08/kubernetes-1-21-release-announcement/
 
 # Kubernetes 1.21: Power to the Community
 
