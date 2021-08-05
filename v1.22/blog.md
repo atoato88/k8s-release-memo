@@ -3,7 +3,7 @@
 
 ---
 
-# Kubernetes Blog より
+# Kubernetes Blog のv1.22リリース記事の日本語翻訳
 
 Original Post: https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/
 
