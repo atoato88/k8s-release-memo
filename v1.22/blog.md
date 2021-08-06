@@ -23,7 +23,7 @@ Original Post: https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-ann
 
 ### Server-side Apply graduates to GA
 
-[Server-side Apply](https://kubernetes.io/docs/reference/using-api/server-side-apply/)は新しいフィールドの所有権であり、Kubernetes API Serverで動作するオブジェクトのマージアルゴリズムです。Server-side Applyはユーザとコントローラが宣言的な構成でリソースを管理することを助けます。これによりオブジェクトを宣言的に作成、更新することが可能になり、シンプルに全てを指定した意図を送信するだけでよくなります。いくつかのリリースでベータだった後に、Server-side ApplyはGA(Generally Available)となります。
+[Server-side Apply](https://kubernetes.io/docs/reference/using-api/server-side-apply/)はKubernetes API Serverで動作する新しいフィールドの所有権とオブジェクトのマージアルゴリズムです。Server-side Applyはユーザとコントローラが宣言的な構成でリソースを管理することを助けます。これによりオブジェクトを宣言的に作成、更新することが可能になり、シンプルに全てを指定した意図を送信するだけでよくなります。いくつかのリリースでベータだった後に、Server-side ApplyはGA(Generally Available)となります。
 
 ### External credential providers now stable
 
@@ -31,11 +31,11 @@ Kuberneteクライアントの[credential plugins](https://kubernetes.io/docs/re
 
 ### etcd moves to 3.5.0
 
-Kubernetesのデフォルトのバックエンドストレージであるetcdの新しいリリース3.5.0があります。新リリースはセキュリティ、パフォーマンス、モニタリング、開発者の体験が向上しています。数多くのバグフィックスと構造化されたログ機能への以降やビルトインのログローテーションのような重要な新機能があります。このリリースはトラフィック負荷に対する解決策を実装するための詳細な未来のロードマップが付属しています。詳細な変更のリストは[3.5.0 release announcement](https://etcd.io/blog/2021/announcing-etcd-3.5/)から読むことが出来ます。
+Kubernetesのデフォルトのバックエンドストレージであるetcdの新しいリリース3.5.0があります。新リリースはセキュリティ、パフォーマンス、モニタリング、開発者の体験が向上しています。数多くのバグフィックスと構造化されたログ機能への移行やビルトインのログローテーションのような重要な新機能があります。このリリースはトラフィック負荷に対する解決策を実装するための詳細な未来のロードマップが規定されました。詳細な変更のリストは[3.5.0 release announcement](https://etcd.io/blog/2021/announcing-etcd-3.5/)から読むことが出来ます。
 
 ### Quality of Service for memory resources
 
-元はKubernetesはv1のcgroup APIをつかっていました。そのデザインでは、`Pod` のQoSクラスはCPUリソース(`cpu_shares`など)のみに適用されています。Appha機能としてKubernetes v1.22ではcgroup v2 APIを使ったメモリの割当と隔離が可能です。この機能はメモリリソースの競合がある場合にワークロードとノードの可用性の向上と、コンテナのライフサイクルにおける予測可能性も向上させるよう設計されています。
+元はKubernetesはv1のcgroup APIをつかっていました。そのデザインでは、`Pod` のQoSクラスはCPUリソース(`cpu_shares`など)のみに適用されています。Alpha機能としてKubernetes v1.22ではcgroup v2 APIを使ったメモリの割当と隔離が可能です。この機能はメモリリソースの競合がある場合にワークロードとノードの可用性の向上と、コンテナのライフサイクルにおける予測可能性も向上させるよう設計されています。
 
 ### Node system swap support
 
@@ -61,7 +61,7 @@ WindowsノードのCSIサポートは1.22リリースでGAとなります。Kube
 
 ### Removal of several deprecated beta APIs
 
-非推奨なBeta APIの大部分は1.22では削除され、同じAPIのGAバージョンが採用されました。存在している全てのオブジェクトは安定版APIを使って対話できます。削除されたものの中にはBetaバージョンの`Ingress`, `IngressClass`, `Lease`, `APIService`, `ValidatingWebhookConfiguration`, `MutatingWebhookConfiguration`, `CustomResourceDefinition`, `TokenReview`, `SubjectAccessReview`, `CertificateSigningRequest` APIが含まれます。
+非推奨なBeta APIの多くは1.22では削除され、同じAPIのGAバージョンが採用されました。存在している全てのオブジェクトは安定版APIを使って対話できます。削除されたものの中にはBetaバージョンの`Ingress`, `IngressClass`, `Lease`, `APIService`, `ValidatingWebhookConfiguration`, `MutatingWebhookConfiguration`, `CustomResourceDefinition`, `TokenReview`, `SubjectAccessReview`, `CertificateSigningRequest` APIが含まれます。
 
 完全なリストとしては、[Deprecated API Migration Guide](https://kubernetes.io/docs/reference/using-api/deprecation-guide/#v1-22)をチェックしてください。ブログの[Kubernetes API and Feature Removals In 1.22: Here’s What You Need To Know](https://blog.k8s.io/2021/07/14/upcoming-changes-in-kubernetes-1-22/)もチェックしてください。
 
