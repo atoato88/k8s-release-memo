@@ -17,7 +17,7 @@ Original Post: https://kubernetes.io/blog/2021/12/07/kubernetes-1-23-release-ann
 
 ### Deprecation of FlexVolume
 
-FlexVolumeはDeprecatedとなりました。out-of-treeのCSIドライバーがKubernetesにおいてボリュームに書き込む推奨方法となります。詳細は[このドキュメント](https://github.com/kubernetes/community/blob/master/sig-storage/volume-plugin-faq.md#kubernetes-volume-plugin-faq-for-storage-vendors)を参照してください。FlexVolumeのメンテなーはCSIドライバーを実装し、FlexVolumeのユーザーをCSIへ移行させるようにしてください。FlexVolumeのユーザーは、自信のワークロードをCSIドライバーへ移行してください。
+FlexVolumeはDeprecatedとなりました。out-of-treeのCSIドライバーがKubernetesにおいてボリュームに書き込む推奨方法となります。詳細は[このドキュメント](https://github.com/kubernetes/community/blob/master/sig-storage/volume-plugin-faq.md#kubernetes-volume-plugin-faq-for-storage-vendors)を参照してください。FlexVolumeのメンテナーはCSIドライバーを実装し、FlexVolumeのユーザーをCSIへ移行させるようにしてください。FlexVolumeのユーザーは、自身のワークロードをCSIドライバーへ移行してください。
 
 ### Deprecation of klog specific flags
 
@@ -25,7 +25,7 @@ FlexVolumeはDeprecatedとなりました。out-of-treeのCSIドライバーがK
 
 ### Software Supply Chain SLSA Level 1 Compliance in the Kubernetes Release Process
 
-Kubernetes リリースは、リリースプロセスに置いてステージングとリリースのフェーズを説明した来歴の証明ファイル(provenance attestation files)を生成するようになりました。1つのフェーズから次のフェーズに移行する時に作成物が検証されています。この最後のピースによって、[SLSA(サルサ) security framework](https://slsa.dev/) (Supply-chain Levels for Software Artifacts)のLevel 1に準拠するのに必要な作業を完了します。
+Kubernetes リリースは、リリースプロセスに置いてステージングとリリースのフェーズを説明した来歴の証明ファイル(provenance attestation files)を生成するようになりました。1つのフェーズから次のフェーズに移行する時に作成物が検証されています。この最後のピースによって、[SLSA(サルサと発音するようです) security framework](https://slsa.dev/) (Supply-chain Levels for Software Artifacts)のLevel 1に準拠するのに必要な作業を完了します。
 
 ### IPv4/IPv6 Dual-stack Networking graduates to GA
 
@@ -111,8 +111,6 @@ CRDにおける表現言語(Expression Laungage)のバリデーションが1.23�
 
 Kubernetes 1.23 リリースの完全な詳細はこちらの [リリースノート](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.23.md) をチェックしてください。
 
-Check out the full details of the Kubernetes 1.23 release in our [release notes](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.23.md).
-
 ### Availability
 
 Kubernetes 1.23 は[GitHub](https://github.com/kubernetes/kubernetes/releases/tag/v1.23.0)からダウンロード可能です。Kubernetesを始めるには、こちらの[対話型チュートリアル](https://kubernetes.io/docs/tutorials/) でチェックしたり、[kind](https://kind.sigs.k8s.io/)によるDockerコンテナーの "ノード" でKubernetesクラスターをローカルで実行してください。[kubeadm](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)を使って1.23を簡単にインストールすることも可能です。
@@ -139,7 +137,7 @@ Kubernetes はスタートレックを参照している歴史があります。
 Reference: https://kubernetes.io/blog/2015/04/borg-predecessor-to-kubernetes/
 Reference: https://github.com/kubernetes/community/blob/master/sig-release/charter.md
 
-Kubernetes 1.23 のロゴももたスタートレックを参照しています。それぞれの星はKubernetesのロゴの舵(Helm)を表しています。船はリリースチームの集合的なチームワークを新たしています。
+Kubernetes 1.23 のロゴもスタートレックを参照しています。それぞれの星はKubernetesのロゴの舵(Helm)を表しています。船はリリースチームの集合的なチームワークを新たしています。
 
 Rey Lejanoがロゴをデザインしました。
 
@@ -148,14 +146,14 @@ Rey Lejanoがロゴをデザインしました。
 
 - [Findings of the latest CNCF End User Technology Radar](https://www.cncf.io/announcements/2021/09/22/cncf-end-user-technology-radar-provides-insights-into-devsecops/) はDevSecOps関連のテーマを扱っています。詳細と調査結果は[Radar Page](https://radar.cncf.io/) を参照してください。
 - エンドユーザーのAegon Life Indiaが主要なデジタルサービス企業への変革を目指し、[コアプロセスを従来のモノリスからマイクロサービスベースアーキテクチャに移行した方法](https://www.cncf.io/case-studies/aegon-life-india/)について説明しています。
-- 複数のクラウドネイティブプロジェクトを活用した[Seagateによるエッヂにおけるリアルタイム分析を実行するためのedgerX](https://www.cncf.io/case-studies/seagate/). 
+- 複数のクラウドネイティブプロジェクトを活用した[Seagateによるエッヂにおけるリアルタイム分析を実行するためのedgerX](https://www.cncf.io/case-studies/seagate/) 
 - [ZambonがSparkFabrikと協力してクラウドネイティブ技術を使用して16のウェブサイトを開発し、一貫したブランドアイデンティティを維持しながらステークホルダーがコンテンツを更新できるようになった方法](https://www.cncf.io/case-studies/zambon/)を説明しています。
 - Kubernetesを使い、[InfluxData はマルチクラウド、マルチリージョンのサービス可用性を約束できるようになりました。](https://www.cncf.io/case-studies/influxdata/) これは、3つの主要なクラウドプロバイダーにまたがる複数のグローバルクラスターへの単一アプリケーションとしてのInfluxDBのシームレスな配信を可能にする真のクラウド抽象化レイヤーの作成により実現しています。
 
 ### Ecosystem Updates
 
 - [KubeCon + CloudNativeCon NA 2021](https://www.cncf.io/events/kubecon-cloudnativecon-north-america-2021/) が2021年の10月にオンラインと現地の両方で開催されました。すべてのトークは確認したい人なら誰でも[現在オンデマンドで確認可能です!](https://www.youtube.com/playlist?list=PLj6h78yzYM2Nd1U4RMhv7v88fdiFqeYAP) 
-- [Kubernetes and Cloud Native Essentials Training と KCNA 認定は現在一般に登録とスケジュールができるようになりました。](https://www.cncf.io/announcements/2021/11/18/kubernetes-and-cloud-native-essentials-training-and-kcna-certification-now-available/). 加えて、新しいオンライントレーニングコースの [Kubernetes and Cloud Native Essentials (LFS250)](https://www.cncf.io/announcements/2021/10/13/entry-level-kubernetes-certification-to-help-advance-cloud-careers/)がリリースされました。これによって、個人が入門レベルのクラウドの役割のための準備と、KCNA試験の準備を行うことができます。
+- [Kubernetes and Cloud Native Essentials Training と KCNA 認定は現在一般に登録とスケジュールができるようになりました。](https://www.cncf.io/announcements/2021/11/18/kubernetes-and-cloud-native-essentials-training-and-kcna-certification-now-available/) 加えて、新しいオンライントレーニングコースの [Kubernetes and Cloud Native Essentials (LFS250)](https://www.cncf.io/announcements/2021/10/13/entry-level-kubernetes-certification-to-help-advance-cloud-careers/)がリリースされました。これによって、個人が入門レベルのクラウドの役割のための準備と、KCNA試験の準備を行うことができます。
 - [the Inclusive Naming Initiativeより新しいリソースが使用可能になりました。](https://www.cncf.io/announcements/2021/10/13/inclusive-naming-initiative-announces-new-community-resources-for-a-more-inclusive-future/)それは、Inclusive Strategies for Open Source (LFC103) のコース、 言語評価フレームワーク(Language Evaluation Framework)、およびその実装パスを含みます。
 
     
