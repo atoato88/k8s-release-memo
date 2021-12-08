@@ -127,7 +127,7 @@ Kubernetes 1.23 は[GitHub](https://github.com/kubernetes/kubernetes/releases/ta
 
 **Kubernetes 1.23: The Next Frontier**
 
-{{< figure src="/images/blog/2021-12-07-kubernetes-release-1.23/kubernetes-1.23.png" alt="" class="release-logo" >}}
+![release-logo](https://d33wubrfki0l68.cloudfront.net/b96583b52b5d3d6fcf0dc2218091e3afc14cf111/5ab2c/images/blog/2021-12-07-kubernetes-release-1.23/kubernetes-1.23.png)
 
 "The Next Frontier" というテーマは1.23における新しい段階的な機能強化と、Kubernetesのスタートレックを参照した歴史、そしてリリースチームのコミュニティメンバーの成長を表しています。
 
