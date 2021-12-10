@@ -25,7 +25,7 @@ FlexVolumeはDeprecatedとなりました。out-of-treeのCSIドライバーがK
 
 ### Software Supply Chain SLSA Level 1 Compliance in the Kubernetes Release Process
 
-Kubernetes リリースは、リリースプロセスに置いてステージングとリリースのフェーズを説明した来歴の証明ファイル(provenance attestation files)を生成するようになりました。1つのフェーズから次のフェーズに移行する時に作成物が検証されています。この最後のピースによって、[SLSA(サルサと発音するようです) security framework](https://slsa.dev/) (Supply-chain Levels for Software Artifacts)のLevel 1に準拠するのに必要な作業を完了します。
+Kubernetes リリースは、リリースプロセスにおいてステージングとリリースのフェーズを説明した来歴の証明ファイル(provenance attestation files)を生成するようになりました。1つのフェーズから次のフェーズに移行する時に作成物が検証されています。この最後のピースによって、[SLSA(サルサと発音するようです) security framework](https://slsa.dev/) (Supply-chain Levels for Software Artifacts)のLevel 1に準拠するのに必要な作業を完了します。
 
 ### IPv4/IPv6 Dual-stack Networking graduates to GA
 
@@ -59,7 +59,7 @@ Kubelet はCRI `v1` をサポートし、プロジェクト横断でデフォル
 
 ### Structured logging graduate to Beta
 
-構造化されたログがBetaのマイルストーンに到達しました。kubeletとkube-sheculerのログメッセージの大部分はすでに変換されています。ユーザーは、JSON出力または構造化テキスト形式の解析を試して、ログ値の複数行の文字列の処理など、未解決の問題に対する可能な解決策についてフィードバックを提供することをお勧めします。
+構造化されたログがBetaのマイルストーンに到達しました。kubeletとkube-schedulerのログメッセージの大部分はすでに変換されています。ユーザーは、JSON出力または構造化テキスト形式の解析を試して、ログ値の複数行の文字列の処理など、未解決の問題に対する可能な解決策についてフィードバックを提供することをお勧めします。
 
 ### Simplified Multi-point plugin configuration for scheduler
 
@@ -67,7 +67,7 @@ kube-scheduler は新しいシンプルな設定フィールドを追加して�
 
 ### CSI Migration updates
 
-CSIマイグレーションは、`kubernetes.io/gce-pd` や`kubernetes.io/aws-ebs`のような既存のin-treeのストレージプラグインと、関連するCSIドライバーの置き換えを可能にします。CSIマイグレーションが適切に動作する場合、Kubernetesのエンドユーザーは違いを感じないでしょう。マイグレーション後も、Kubernetesのユーザーは既存のインターフェースを使用してin-treeのストレージプラグインのすべての機能に依存し続ける可能性があります。
+CSIマイグレーションは、`kubernetes.io/gce-pd` や`kubernetes.io/aws-ebs`のような既存のin-treeのストレージプラグインと、関連するCSIドライバーの置き換えを可能にします。CSIマイグレーションが適切に動作する場合、Kubernetesのエンドユーザーは違いを感じないでしょう。マイグレーション後も、Kubernetesのユーザーは既存のインターフェースを使用してin-treeのストレージプラグインのすべての機能に依存することができます。
 - CSIマイグレーション機能はデフォルトで有効化されていますが、1.23ではGCE PD、AWS EBS、AzureDiskではBetaのままです。
 - CSIマイグレーションは、1.23ではCeph RBDとPortworxではAlphaとして導入されています。
 
@@ -166,7 +166,7 @@ v1.23 リリースサイクルは16週間(08/23 - 12/07)でした。[1032の企�
 ### Event Update
 
 - [KubeCon + CloudNativeCon China 2021](https://www.lfasiallc.com/kubecon-cloudnativecon-open-source-summit-china/) が12/09 - 12/11に開催されます。 去年は開催されませんでしたが、今年はバーチャル開催で105のセッションが含まれます。イベントスケジュールを[ここからチェックしてください](https://www.lfasiallc.com/kubecon-cloudnativecon-open-source-summit-china/program/schedule/)。
-- KubeCon + CloudNativeCon Europe 2022 が2022年05/04 - 05/07でスペインのバレンシアで開催されます!カンファレンスの情報や登録については[イベントのサイトから確認してください。](https://events.linuxfoundation.org/archive/2021/kubecon-cloudnativecon-europe/).
+- KubeCon + CloudNativeCon Europe 2022 が2022年05/04 - 05/07でスペインのバレンシアで開催されます!カンファレンスの情報や登録については[イベントのサイトから確認してください。](https://events.linuxfoundation.org/archive/2021/kubecon-cloudnativecon-europe/)
 - Kubernetes Community Days がパキスタン、ブラジル、成都、オーストラリアで開催予定です。
 
 ### Upcoming Release Webinar
