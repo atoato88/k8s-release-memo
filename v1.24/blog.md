@@ -24,7 +24,7 @@ v1.24以降では、（containerd や CRI-O のような）[サポートされ�
 ### Beta APIs Off by Default
 
 [新規のベータAPIはデフォルトではクラスタで有効になりません](https://github.com/kubernetes/enhancements/issues/3136)。
-既存のベータAPIと既存のベータAPIのあたら良いバージョンはデフォルトで有効化されたままとなります。
+既存のベータAPIと既存のベータAPIの新しいバージョンはデフォルトで有効化されたままとなります。
 
 ### Signing Release Artifacts
 
@@ -37,9 +37,9 @@ Kubernetes 1.24は、 [OpenAPI v3 フォーマット](https://github.com/kuberne
 
 ### Storage Capacity and Volume Expansion Are Generally Available
 
-[ストレージ容量追跡(Storage capacity tracking)](https://github.com/kubernetes/enhancements/issues/1472) が[CSIStorageCapacityオブジェクト](https://kubernetes.io/docs/concepts/storage/storage-capacity/#api) を使うことで、現在の利用可能なストレージ容量の公開をサポートし。また、CSIボリュームを遅延バインドで使ったPodのスケジューリングを拡張します。
+[ストレージ容量追跡(Storage capacity tracking)](https://github.com/kubernetes/enhancements/issues/1472) は[CSIStorageCapacityオブジェクト](https://kubernetes.io/docs/concepts/storage/storage-capacity/#api) を使うことで、現在の利用可能なストレージ容量の公開をサポートします。また、CSIボリュームを遅延バインドで使ったPodのスケジューリングを拡張します。
 
-[ボリューム拡張]が、既存の永続ボリュームのリサイズサポートを追加しました。
+[ボリューム拡張](https://github.com/kubernetes/enhancements/issues/284)は、既存の永続ボリュームのリサイズのサポートを追加しました。
 
 ### NonPreemptingPriority to Stable
 
@@ -47,7 +47,7 @@ Kubernetes 1.24は、 [OpenAPI v3 フォーマット](https://github.com/kuberne
 
 ### Storage Plugin Migration
 
-オリジナルのAPIを維持しながら、[インツリーのストレージプラグインの内部をマイグレーション]し、CSIプラグインをコールする作業が進行中です。
+オリジナルのAPIを維持しながら、[インツリーのストレージプラグインの内部をマイグレーション](https://github.com/kubernetes/enhancements/issues/625)し、CSIプラグインをコールする作業が進行中です。
 [Azure Disk](https://github.com/kubernetes/enhancements/issues/1490) と [OpenStack Cinder](https://github.com/kubernetes/enhancements/issues/1489) は両方とも移行が完了しています。
 
 ### gRPC Probes Graduate to Beta
@@ -65,7 +65,7 @@ Kubernetes 1.24は[コンテキストロギング(contextual logging)](https://g
 
 ### Avoiding Collisions in IP allocation to Services
 
-Kubernetes 1.24はServiceに対して[静的IPアドレス割り当ての範囲を緩やかに予約(soft-reserve)]することができる、新規に選択可能な機能を導入します。
+Kubernetes 1.24はServiceに対して[静的IPアドレス割り当ての範囲を緩やかに予約(soft-reserve)](https://kubernetes.io/docs/concepts/services-networking/service/#service-ip-static-sub-range)することのできる新たに選択可能な機能を導入します。
 この機能を手動で有効化することで、クラスタは Service のIPアドレスプールから自動割当することを優先し(prefer)、衝突のリスクを減らすことになります。
 
 Service の `ClusterIP` は次のように割り当て可能です。
@@ -134,8 +134,6 @@ Kubernetesを始めるには、こちらの[対話型チュートリアル](http
 
 このリリースは、Kubernetes 1.24リリースチームを構成する献身的な個人の共同の努力なくしては不可能でした。このチームは、各Kubernetesリリースに含まれるコード、ドキュメント、リリースノートなどを含む全てのコンポーネントを提供するために集まりました。
 
-リリースサイクルを成功に導いてくれたリリースリードのJames Laverackに心から感謝します。そして、
-
 リリースサイクルを成功させるために私たちを導いてくれたリリースリーダーのJamesLaverackに特に感謝します。 そして、Kubernetesコミュニティにv1.24リリースを提供するために、時間と労力を費やしてくれたすべてのリリースチームメンバーに感謝します。
 
 ### Release Theme and Logo
@@ -150,18 +148,18 @@ Kubernetes 1.24のテーマは _星を見つめる人(スターゲイザー)_ �
 
 このリリースで我々は、コミュニティが集まったときに何が可能になるか上を見つめて考えました。Kubernetesは世界中の何百ものコントリビュータと、何百万ものアプリケーションを提供する何千ものエンドユーザの作業の結晶です。
 
-リリースロゴは[Britnee Laverack](https://www.instagram.com/artsyfie/)によって作られ、星がきらめく空と、しばしば "7人の姉妹" の神話として知られる[プレアデス](https://en.wikipedia.org/wiki/Pleiades)を覗く望遠鏡を描いています。7という数字は特にKubernetesプロジェクトにおいては特別で演技の良いものです。そしてそれは元の "プロジェクトセブン" という名前にさかのぼるものです。
+リリースロゴは[Britnee Laverack](https://www.instagram.com/artsyfie/)によって作られ、星がきらめく空と、しばしば "7人の姉妹" の神話として知られる[プレアデス](https://en.wikipedia.org/wiki/Pleiades)を覗く望遠鏡を描いています。7という数字は特にKubernetesプロジェクトにおいては特別で縁起の良いものです。そしてそれは元の "プロジェクトセブン" という名前にさかのぼるものです。
 
 このKubernetesリリースは夜空を見つめ思いを巡らす人、つまり全ての星を見つめる人にちなんで名付けられました。✨
 
 ### User Highlights
 
 * リテールEコマース企業の [La Redoute が Kubernetes と他のCNCFプロジェクトを使い、開発から運用までのソフトウェアデリバリのライフサイクルの変更と簡素化](https://www.cncf.io/case-studies/la-redoute/) をどのようにしてリードしたかをチェックしてください。
-* API呼び出しの変更が問題を起こさないようにするため、 [Salt Security はgRPCで通信しLinkerdでメッセージ暗号化されたマイクロサービスの全体をKubernetes上に構築しました。](https://www.cncf.io/case-studies/salt-security/).
-* プライベートからパブリッククラウドへの移行を通して, [Allainz Direct のエンジニアはわずか3ヶ月でCI/CDパイプラインを再設計し、200のワークフローを10〜15まで凝縮することに成功しました。](https://www.cncf.io/case-studies/allianz/).
+* API呼び出しの変更が問題を起こさないようにするため、 [Salt Security はgRPCで通信しLinkerdでメッセージ暗号化されたマイクロサービスの全体をKubernetes上に構築しました。](https://www.cncf.io/case-studies/salt-security/)
+* プライベートからパブリッククラウドへの移行を通して, [Allainz Direct のエンジニアはわずか3ヶ月でCI/CDパイプラインを再設計し、200のワークフローを10〜15まで縮めることに成功しました。](https://www.cncf.io/case-studies/allianz/)
 * どのように[UKのフィンテック企業であるBinkが社内KubernetesディストリビューションをLinkerdとともにアップデートし、パフォーマンスや安定性を注意深く見ながら必要な時にスケールできるクラウドに依存しない(cloud-agnostic)なプラットフォームを構築したか](https://www.cncf.io/case-studies/bink/)をチェックしてください。
 * Kubernetesを使うことで、 オランダの組織である [Stichting Open Nederland](http://www.stichtingopennederland.nl/) が1ヶ月半でオランダでの安全なイベントの再開を助けるための検査用ポータルを作りました。 [Testing for Entry (Testen voor Toegang)](https://www.testenvoortoegang.org/) プラットフォームは [Kuberntesの性能とスケーラビリティを用い、1日に40万人を超えるCOVID-19検査を予約できるようにしました。](https://www.cncf.io/case-studies/true/)
-* SparkFabrik と Backstage を活用し、 [Santagostino は開発者用プラットフォームのSamaritanを作りました。それはサービスとドキュメントを一元化し、サービスのライフサイクル全体を管理し、Santagostino開発者の作業を簡素化します。](https://www.cncf.io/case-studies/santagostino/).
+* SparkFabrik と Backstage を活用し、 [Santagostino は開発者用プラットフォームのSamaritanを作りました。それはサービスとドキュメントを一元化し、サービスのライフサイクル全体を管理し、Santagostino開発者の作業を簡素化します。](https://www.cncf.io/case-studies/santagostino/)
 
 ### Ecosystem Updates
 
