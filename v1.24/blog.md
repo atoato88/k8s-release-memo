@@ -163,7 +163,7 @@ Kubernetes 1.24のテーマは _星を見つめる人(スターゲイザー)_ �
 
 ### Ecosystem Updates
 
-* KubeCon + CloudNativeCon Europe 2022 がスペインのバレンシアで2022/05/16〜20で開催されます! [イベントサイト](https://events.linuxfoundation.org/archive/2021/kubecon-cloudnativecon-europe/)でカンファレンスの詳細の確認と登録が可能です。
+* KubeCon + CloudNativeCon Europe 2022 がスペインのバレンシアで2022/05/16〜20で開催されます! [イベントサイト](https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/)でカンファレンスの詳細の確認と登録が可能です。
 * [2021年の Cloud Native Survey](https://www.cncf.io/announcements/2022/02/10/cncf-sees-record-kubernetes-and-container-adoption-in-2021-cloud-native-survey/)を通して、 CNCFは記録的なKubernetesとコンテナの適用を見てきました。[サーベイの結果](https://www.cncf.io/reports/cncf-annual-survey-2021/)を確認してみてください。
 * The [Linux Foundation](https://www.linuxfoundation.org/) と [The Cloud Native Computing Foundation](https://www.cncf.io/) (CNCF) は、新規の [Cloud Native Developer Bootcamp](https://training.linuxfoundation.org/training/cloudnativedev-bootcamp/?utm_source=lftraining&utm_medium=pr&utm_campaign=clouddevbc0322) を発表しました。これは、参加者にクラウドネイティブアプリケーションの設計、構築、配備の知識と技術を提供します。より詳細は[アナウンス](https://www.cncf.io/announcements/2022/03/15/new-cloud-native-developer-bootcamp-provides-a-clear-path-to-cloud-native-careers/)を確認してください。
 
@@ -171,7 +171,7 @@ Kubernetes 1.24のテーマは _星を見つめる人(スターゲイザー)_ �
 
 [CNCF K8s DevStats](https://k8s.devstats.cncf.io/d/12/dashboards?orgId=1&refresh=15m) プロジェクトは、Kubernetesやそのサブプロジェクトのベロシティに関する興味深いデータの数字を集約します。ここには個人のコントリビュータからコントリビューションしている企業の数まで含まれており、このエコシステムを進化させる努力の深さと広さを示しています。
 
-v1.24 リリースサイクルは[17週間](https://github.com/kubernetes/sig-release/tree/master/releases/release-1.24) (January 10 to May 3)でした。[1029の企業](https://k8s.devstats.cncf.io/d/9/companies-table?orgId=1&var-period_name=v1.23.0%20-%20now&var-metric=contributions) と [1179の個人](https://k8s.devstats.cncf.io/d/66/developer-activity-counts-by-companies?orgId=1&var-period_name=v1.23.0%20-%20now&var-metric=contributions&var-repogroup_name=Kubernetes&var-country_name=All&var-companies=All&var-repo_name=kubernetes%2Fkubernetes)によるコントリビューションがありました。
+v1.24 リリースサイクルは[17週間](https://github.com/kubernetes/sig-release/tree/master/releases/release-1.24) (January 10 to May 3)でした。[1029の企業](https://k8s.devstats.cncf.io/d/9/companies-table?orgId=1&var-period_name=v1.23.0%20-%20v1.24.0&var-metric=contributions) と [1179の個人](https://k8s.devstats.cncf.io/d/66/developer-activity-counts-by-companies?orgId=1&var-period_name=v1.23.0%20-%20v1.24.0&var-metric=contributions&var-repogroup_name=Kubernetes&var-country_name=All&var-companies=All&var-repo_name=kubernetes%2Fkubernetes)によるコントリビューションがありました。
 
 ## Upcoming Release Webinar
 
