@@ -8,9 +8,7 @@ Kubernetes v1.25のリリースをアナウンスします!
 
 **Kubernetes 1.25: Combiner**
 
-- img
-  - src="/images/blog/2022-08-23-kubernetes-1.25-release/kubernetes-1.25.png"
-  - alt="Combiner logo"
+![release-logo](https://kubernetes.io/images/blog/2022-08-23-kubernetes-1.25-release/kubernetes-1.25.png)
 
 Kubernetes v1.25のテーマは _Combiner(結集する人々)_ です。
 
@@ -24,7 +22,7 @@ Kubernetesプロジェクトはそれ自体が多くの、大変多くの個人�
 
 ## What's New (Major Themes)
 
-### PodSecurityPolicy is removed; Pod Security Admission graduates to Stable {#pod-security-changes}
+### PodSecurityPolicy is removed; Pod Security Admission graduates to Stable
 
 PodSecurityPolicyは始め[v1.21でDeprecated](/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/)となり、v1.25リリースで削除されました。ユーザビリティの向上に必要であった更新は、破壊的な変更を引き起こすため、より使いやすい仕組みを優先する形で削除が必要でした。代替する[Pod Security Admission](/docs/concepts/security/pod-security-admission/)は、今回のリリースでStableとなります。もし現在PodSecurityPolicyを使っている場合は、[Pod Security Admissionへの移行](/docs/tasks/configure-pod-container/migrate-from-psp/)手順を参照してください。
 
@@ -128,42 +126,38 @@ Kubernetesはコミュニティのサポート、コミットメントそして�
 
 ### User Highlights
 
-* Finleap Connect operates in a highly regulated environment. [In 2019, they had five months to implement mutual TLS (mTLS) across all services in their clusters for their business code to comply with the new European PSD2 payment directive](https://www.cncf.io/case-studies/finleap-connect/).
-* PNC sought to develop a way to ensure new code would meet security standards and audit compliance requirements automatically—replacing the cumbersome 30-day manual process they had in place. Using Knative, [PNC developed internal tools to automatically check new code and changes to existing code](https://www.cncf.io/case-studies/pnc-bank/).
-* Nexxiot needed highly-reliable, secure, performant, and cost efficient Kubernetes clusters. [They turned to Cilium as the CNI to lock down their clusters and enable resilient networking with reliable day two operations](https://www.cncf.io/case-studies/nexxiot/).
-* Because the process of creating cyber insurance policies is a complicated multi-step process, At-Bay sought to improve operations by using asynchronous message-based communication patterns/facilities. [They determined that Dapr fulfilled its desired list of requirements and much more](https://www.cncf.io/case-studies/at-bay/). 
+* Finleap Connectの高度に規制された環境での運用。[2019年に、この企業はビジネスコードを欧州の決済サービス指令 PSD2に準拠させるため、5ヶ月でクラスタにおける全てのサービスを横断した相互TLS認証(mTLS)を実装しました](https://www.cncf.io/case-studies/finleap-connect/)。
+* PNSは新しいコードがセキュリティ基準を満たし、コンプライアンス要件を自動的に監査できるようにする方法を開発しようとしました。これにより実施に30日かかる面倒な手動プロセスを置き換えました。Knativeを使うことで、[PNCは自動的に新しいコードをチェックして既存のコード変更する内部ツールを開発しました](https://www.cncf.io/case-studies/pnc-bank/)。
+* Nexxiotは高度に信頼でき、セキュアで、パフォーマンスが良く、コスト効果の高いKubernetesクラスタを必要としていました。[この企業はCNIとしてCiliumに変更して、クラスターをロックダウンし、信頼性の高いDay2運用により回復力のあるネットワークを実現しました](https://www.cncf.io/case-studies/nexxiot/)。
+* サイバー保険契約を作るプロセスは複雑は多段階の手続きであるため、At-Bayは非同期のメッセージベース通信パターン/設備を使った運用を改善を求めていました。[この企業は、 必要な要件のリストの全てとそれ以上をDaprが満たすと判断しました](https://www.cncf.io/case-studies/at-bay/)。
 
 ### Ecosystem Updates
 
-* KubeCon + CloudNativeCon North America 2022 will take place in Detroit, Michigan from 24 – 28 October 2022! You can find more information about the conference and registration on the [event site](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/).
-* KubeDay event series kicks off with KubeDay Japan December 7! Register or submit a proposal on the [event site](https://events.linuxfoundation.org/kubeday-japan/)
-* In the [2021 Cloud Native Survey](https://www.cncf.io/announcements/2022/02/10/cncf-sees-record-kubernetes-and-container-adoption-in-2021-cloud-native-survey/), the CNCF saw record Kubernetes and container adoption. Take a look at the [results of the survey](https://www.cncf.io/reports/cncf-annual-survey-2021/). 
+* KubeCon + CloudNativeCon North America 2022がミシガン州デトロイトで2022年10月24日〜28日に開催されます! カンファレンスと参加登録の詳細は[イベントのサイト](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/)から見つけられます。
+* KubeDayの一連のイベントが12月7日開催のKubeDay Japanから開始します! [イベントのサイト](https://events.linuxfoundation.org/kubeday-japan/)から参加登録や発表案の登録が行えます。
+* [2021 Cloud Native Survey](https://www.cncf.io/announcements/2022/02/10/cncf-sees-record-kubernetes-and-container-adoption-in-2021-cloud-native-survey/)を通して、CNCFはKubernetesとコンテナへの適用の記録を見ることができます。ぜひ[サーベイの結果](https://www.cncf.io/reports/cncf-annual-survey-2021/)を参照ください。
 
 ### Project Velocity
 
-The [CNCF K8s DevStats](https://k8s.devstats.cncf.io/d/12/dashboards?orgId=1&refresh=15m) project 
-aggregates a number of interesting data points related to the velocity of Kubernetes and various 
-sub-projects. This includes everything from individual contributions to the number of companies that 
-are contributing, and is an illustration of the depth and breadth of effort that goes into evolving this ecosystem.
+[CNCF K8s DevStats](https://k8s.devstats.cncf.io/d/12/dashboards?orgId=1&refresh=15m) プロジェクトは、Kubernetesやそのサブプロジェクトのベロシティに関する興味深いデータの数字を集約します。ここには個人のコントリビュータからコントリビューションしている企業の数まで含まれており、このエコシステムを進化させる努力の深さと広さを示しています。
 
-In the v1.24 release cycle, which [ran for 15 weeks](https://github.com/kubernetes/sig-release/tree/master/releases/release-1.25) (May 23 to August 23), we saw contributions from [1065 companies](https://k8s.devstats.cncf.io/d/9/companies-table?orgId=1&var-period_name=v1.24.0%20-%20v1.25.0&var-metric=contributions) and [1620 individuals](https://k8s.devstats.cncf.io/d/66/developer-activity-counts-by-companies?orgId=1&var-period_name=v1.24.0%20-%20v1.25.0&var-metric=contributions&var-repogroup_name=Kubernetes&var-country_name=All&var-companies=All&var-repo_name=kubernetes%2Fkubernetes).
+v1.25 リリースサイクルは[17週間](https://github.com/kubernetes/sig-release/tree/master/releases/release-1.25) (May 23 to August 23)で, [1065の企業](https://k8s.devstats.cncf.io/d/9/companies-table?orgId=1&var-period_name=v1.24.0%20-%20v1.25.0&var-metric=contributions)と[1620の個人](https://k8s.devstats.cncf.io/d/66/developer-activity-counts-by-companies?orgId=1&var-period_name=v1.24.0%20-%20v1.25.0&var-metric=contributions&var-repogroup_name=Kubernetes&var-country_name=All&var-companies=All&var-repo_name=kubernetes%2Fkubernetes)によるコントリビューションがありました。
 
 ## Upcoming Release Webinar
 
-Join members of the Kubernetes v1.25 release team on Thursday September 22, 2022 10am – 11am PT to learn about 
-the major features of this release, as well as deprecations and removals to help plan for upgrades. 
-For more information and registration, visit the [event page](https://community.cncf.io/events/details/cncf-cncf-online-programs-presents-cncf-live-webinar-kubernetes-v125-release/).
+2022年9月22日 木曜日 10am – 11am PT にKubernetes v1.25のリリースチームメンバーがこのリリースの主要な機能やアップグレード計画を助けるための非推奨、削除機能について学ぶために(ウェビナーに)参加します。
+詳細情報と登録のためには、[イベントページ](https://community.cncf.io/events/details/cncf-cncf-online-programs-presents-cncf-live-webinar-kubernetes-v125-release/)を参照してください。
 
 ## Get Involved
 
-The simplest way to get involved with Kubernetes is by joining one of the many [Special Interest Groups](https://github.com/kubernetes/community/blob/master/sig-list.md) (SIGs) that align with your interests. 
-Have something you’d like to broadcast to the Kubernetes community? Share your voice at our weekly [community meeting](https://github.com/kubernetes/community/tree/master/communication), and through the channels below:
+Kubernetesに参加するための最も簡単な方法は、多くの[Special Interest Groups](https://github.com/kubernetes/community/blob/master/sig-list.md)(SIGs)の中で自分の興味のあるものに参加することです。 
+もしコミュニティと共有したいことがある場合は、週次の[コミュニティミーティング](https://github.com/kubernetes/community/tree/master/communication)に参加することも可能ですし、以下のチャンネルも活用してください。
 
-* Find out more about contributing to Kubernetes at the [Kubernetes Contributors](https://www.kubernetes.dev/) website
-* Follow us on Twitter [@Kubernetesio](https://twitter.com/kubernetesio) for the latest updates
-* Join the community discussion on [Discuss](https://discuss.kubernetes.io/)
-* Join the community on [Slack](http://slack.k8s.io/)
-* Post questions (or answer questions) on [Server Fault](https://serverfault.com/questions/tagged/kubernetes).
-* Share your Kubernetes [story](https://docs.google.com/a/linuxfoundation.org/forms/d/e/1FAIpQLScuI7Ye3VQHQTwBASrgkjQDSS5TP0g3AXfFhwSM9YpHgxRKFA/viewform)
-* Read more about what’s happening with Kubernetes on the [blog](https://kubernetes.io/blog/)
-* Learn more about the [Kubernetes Release Team](https://github.com/kubernetes/sig-release/tree/master/release-team)
+* [Kubernetes Contributors](https://www.kubernetes.dev/)でコントリビューションについての詳細を見つけられます。 
+* 最新の更新についてはTwitterの[@Kubernetesio](https://twitter.com/kubernetesio)をフォローしてください。 
+* コミュニティでの相談は[Discuss](https://discuss.kubernetes.io/)に参加してください。 
+* [Slack](http://slack.k8s.io/)のコミュニティに参加してください。 
+* 質問(や質問の回答)を[Server Fault](https://serverfault.com/questions/tagged/kubernetes)に登録してください。
+* あなたのKubernetesの[ストーリー](https://docs.google.com/a/linuxfoundation.org/forms/d/e/1FAIpQLScuI7Ye3VQHQTwBASrgkjQDSS5TP0g3AXfFhwSM9YpHgxRKFA/viewform)を共有してください。 
+* [blog](https://kubernetes.io/blog/)でKubernetesで起きてる出来事を読むことが出来ます。
+* [Kubernetes Release Team](https://github.com/kubernetes/sig-release/tree/master/release-team)についての詳細を知ることが出来ます。
