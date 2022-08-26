@@ -70,7 +70,7 @@ SeccompDefaultがベータとなりました。詳細は[Restrict a Container's 
 
 ### Promoted core CSI Migration to Stable
 
-[CSI Migration](https://kubernetes.io/blog/2021/12/10/storage-in-tree-to-csi-migration-status-update/#quick-recap-what-is-csi-migration-and-why-migrate)はSIG Storageはこれまで数リリースにわたり作業しており、現在も実施中です。ゴールはin-treeのボリュームプラグインをout-of-treeのCSIドライバへ移行することで、最終的にはin-treeのボリュームプラグインを削除することです。[コアのCSI Migration](https://github.com/kubernetes/enhancements/tree/master/keps/sig-storage/625-csi-migration)機能はGAとなりました。GCE PDとAWS EBSのCSI MigrationもまたGAとなりました。vSphereのCSI Migrationはベータのままです(ただしデフォルトでオン)。PortworxのCSI Migrationはベータとなりました(ただしデフォルトでオフ)。
+[CSI Migration](https://kubernetes.io/blog/2021/12/10/storage-in-tree-to-csi-migration-status-update/#quick-recap-what-is-csi-migration-and-why-migrate)はSIG Storageでこれまで数リリースにわたり作業しており、現在も実施中です。ゴールはin-treeのボリュームプラグインをout-of-treeのCSIドライバへ移行することで、最終的にはin-treeのボリュームプラグインを削除することです。[コアのCSI Migration](https://github.com/kubernetes/enhancements/tree/master/keps/sig-storage/625-csi-migration)機能はGAとなりました。GCE PDとAWS EBSのCSI MigrationもまたGAとなりました。vSphereのCSI Migrationはベータのままです(ただしデフォルトでオン)。PortworxのCSI Migrationはベータとなりました(ただしデフォルトでオフ)。
 
 ### Promoted CSI Ephemeral Volume to Stable
 
@@ -134,9 +134,9 @@ Kubernetesはコミュニティのサポート、コミットメントそして�
 ### User Highlights
 
 * Finleap Connectの高度に規制された環境での運用。[2019年に、この企業はビジネスコードを欧州の決済サービス指令 PSD2に準拠させるため、5ヶ月でクラスタにおける全てのサービスを横断した相互TLS認証(mTLS)を実装しました](https://www.cncf.io/case-studies/finleap-connect/)。
-* PNSは新しいコードがセキュリティ基準を満たし、コンプライアンス要件を自動的に監査できるようにする方法を開発しようとしました。これにより実施に30日かかる面倒な手動プロセスを置き換えました。Knativeを使うことで、[PNCは自動的に新しいコードをチェックして既存のコード変更する内部ツールを開発しました](https://www.cncf.io/case-studies/pnc-bank/)。
+* PNCは新しいコードがセキュリティ基準を満たし、コンプライアンス要件を自動的に監査できるようにする方法を開発しようとしました。これにより実施に30日かかる面倒な手動プロセスを置き換えました。Knativeを使うことで、[PNCは自動的に新しいコードをチェックして既存のコード変更する内部ツールを開発しました](https://www.cncf.io/case-studies/pnc-bank/)。
 * Nexxiotは高度に信頼でき、セキュアで、パフォーマンスが良く、コスト効果の高いKubernetesクラスタを必要としていました。[この企業はCNIとしてCiliumに変更して、クラスターをロックダウンし、信頼性の高いDay2運用により回復力のあるネットワークを実現しました](https://www.cncf.io/case-studies/nexxiot/)。
-* サイバー保険契約を作るプロセスは複雑は多段階の手続きであるため、At-Bayは非同期のメッセージベース通信パターン/設備を使った運用を改善を求めていました。[この企業は、 必要な要件のリストの全てとそれ以上をDaprが満たすと判断しました](https://www.cncf.io/case-studies/at-bay/)。
+* サイバー保険契約を作るプロセスは複雑は多段階の手続きであるため、At-Bayは非同期のメッセージベース通信パターン/設備を使った運用の改善を求めていました。[この企業は、 必要な要件のリストの全てとそれ以上をDaprが満たすと判断しました](https://www.cncf.io/case-studies/at-bay/)。
 
 ### Ecosystem Updates
 
