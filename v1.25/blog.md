@@ -1,3 +1,8 @@
+本ドキュメントは意訳になります。
+また、動作の詳細な確認、関連機能の調査などをしていないため、解釈ミス・翻訳ミスが含まれる可能性があることをご了承ください。
+
+---
+
 **Authors**: [Kubernetes 1.25 Release Team](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.25/release-team.md)
 
 Kubernetes v1.25のリリースをアナウンスします!
