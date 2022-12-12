@@ -9,7 +9,7 @@
 
 Kubernetes v1.26 のリリースを発表できることを非常に嬉しく思います。
 
-このリリースは合計で37個のEnhancementがあります。11個がStableとなり、10個がBetaとなり、16個がAlphaとなりました。また、12個の機能がDeprecatedあるいは削除されました。この内3個をこのアナウンスの中で詳細に述べます。
+このリリースは合計で37個のEnhancementがあります。11個がStableとなり、10個がBetaとなり、16個がAlphaとなりました。また、12個の機能がDeprecatedあるいは削除されました。この中で3個をこのアナウンスの中で詳細に述べます。
 
 ## Release theme and logo 
 
@@ -27,7 +27,7 @@ Kubernetes v1.26のテーマは _しびれること(Electrifying)_ です。
 環境持続可能性(Environmental Sustainability)は、あらゆるソフトウェアソリューションの作成者と利用者にとって避けられない関心事です。
 また、Kubernetesのようなソフトウェアの環境フットプリント(Environmental Footprint)は、今後のリリースで重要な役割を果たすと信じています。
 
-コミュニティとして、私たちは常に新しいリリースのプロセスを以前より良くするために努力しています。（例えば、今回のリリースで私たちは[機能拡張の追跡にGitHubのProjectsの使用を開始しました](https://github.com/orgs/kubernetes/projects/98/views/1))。[v1.24 "Stargazer"](/blog/2022/05/03/kubernetes-1-24-release-announcement/) では _もし私たちが上を向いて、私たちのコミュニティが一緒になれば何ができるかを考えていました。_ そして[v1.25 "Combiner"](/blog/2022/08/23/kubernetes-v1-25-release/)では、 私たちのコミュニティが力を合わせると何ができるのか？_ を考えていました。
+コミュニティとして、私たちは常に新しいリリースのプロセスを以前より良くするために努力しています。（例えば、今回のリリースで私たちは[機能拡張の追跡にGitHubのProjectsの使用を開始しました](https://github.com/orgs/kubernetes/projects/98/views/1))。[v1.24 "Stargazer"](https://kubernetes.io/blog/2022/05/03/kubernetes-1-24-release-announcement/) では _もし私たちが上を向いて、私たちのコミュニティが一緒になれば何ができるかを考えていました。_ そして[v1.25 "Combiner"](https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/)では、 私たちのコミュニティが力を合わせると何ができるのか？_ を考えていました。
 このv1.26 "Electrifying"もまた、リリースフローに統合された個人の動きで、私たちのコミュニティができることに貢献したすべての人に捧げます。
 
 ## Major themes
@@ -38,12 +38,12 @@ Kubernetes v1.26は、世界中のボランティアチームによってもた�
 
 前回のリリースで、[Kubernetesはコンテナレジストリ](https://github.com/kubernetes/kubernetes/pull/109938)を変更し、複数のクラウドプロバイダやリージョンに負荷を分散できるようにしました。1つのエンティティへの依存を削減し、多くのユーザーに対してより高速なダウンロード体験を提供するための変更でした。
 
-今回のKubernetesのリリースは、はじめて`registry.k8s.io`に排他的に公開される最初のリリースです。(現在はレガシーな) `k8s.gcr.io` イメージレジストリでは、v1.26 用のコンテナイメージのタグは公開されません。v1.26 用のタグは発行されず、v1.26 より前のリリースのタグのみが引き続き更新されます。[registry.k8s.io:  faster, cheaper and GenerallyAvailable](/blog/2022/11/28/registry-k8s-io-faster-cheaper-ga/)を参照してください。
+今回のKubernetesのリリースは、はじめて`registry.k8s.io`に排他的に公開される最初のリリースです。(現在はレガシーな) `k8s.gcr.io` イメージレジストリでは、v1.26 用のコンテナイメージのタグは公開されません。v1.26 用のタグは発行されず、v1.26 より前のリリースのタグのみが引き続き更新されます。[registry.k8s.io:  faster, cheaper and GenerallyAvailable](https://kubernetes.io/blog/2022/11/28/registry-k8s-io-faster-cheaper-ga/)を参照してください。
 この重要な変更の動機、利点、および意味について、より詳しい情報を得ることができます。
 
 ### CRI v1alpha2 removed
 
-[Container Runtime Interface](/docs/concepts/architecture/cri/) (CRI)の採用や[dockershimの削除](/blog/2022/02/17/dockershim-faq/) がv1.24で実施されたことにより、CRIは、Kubernetesが異なるコンテナと対話するために唯一サポートされ、かつ文書化された方法となりました。各kubeletは、そのノード上のコンテナランタイムと使用するCRIのバージョンをネゴシエートします。
+[Container Runtime Interface](https://kubernetes.io/docs/concepts/architecture/cri/) (CRI)の採用や[dockershimの削除](https://kubernetes.io/blog/2022/02/17/dockershim-faq/) がv1.24で実施されたことにより、CRIは、Kubernetesが異なるコンテナと対話するために唯一サポートされ、かつ文書化された方法となりました。各kubeletは、そのノード上のコンテナランタイムと使用するCRIのバージョンをネゴシエートします。
 
 以前のリリースでは、KubernetesプロジェクトはCRIバージョン`v1`の使用を推奨していました。kubeletはまだ CRI `v1alpha2` の使用をネゴシエートできましたが、これは非推奨となりました。
 
@@ -79,7 +79,7 @@ Kubernetes v1.24で導入された、[この機能](https://github.com/kubernete
 ### Support for Windows privileged containers graduates to stable
 
 特権コンテナのサポートにより、コンテナはホスト上で直接実行されるプロセスと同様のアクセス権で実行することができます。Windowsノードでこの機能をサポートする、[HostProcess
-コンテナ](/docs/tasks/configure-pod-container/create-hostprocess-pod/)が、[stableとなりました。](https://github.com/kubernetes/enhancements/issues/1981)特権コンテナからホストリソース(ネットワークリソースを含む)にアクセスできるようになります。
+コンテナ](https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/)が、[stableとなりました。](https://github.com/kubernetes/enhancements/issues/1981)特権コンテナからホストリソース(ネットワークリソースを含む)にアクセスできるようになります。
 
 ### Improvements to Kubernetes metrics
 
@@ -88,12 +88,12 @@ Kubernetes v1.24で導入された、[この機能](https://github.com/kubernete
 #### Metrics framework extension graduates to alpha
 
 メトリックスフレームワークの拡張機能[がアルファとなりました](https://github.com/kubernetes/enhancements/issues/3498)。
-[Kubernetesコードベースのすべてのメトリックについてドキュメントが公開されました](/docs/reference/instrumentation/metrics/)。
+[Kubernetesコードベースのすべてのメトリックについてドキュメントが公開されました](https://kubernetes.io/docs/reference/instrumentation/metrics/)。
 この拡張は、2つの追加のメタデータフィールドを追加します。それは`Internal`と`Beta`で、メトリックの成熟度の異なる段階を表しています。
 
 #### Component Health Service Level Indicators graduates to alpha
 
-また、Kubernetesのメトリクスを消費する機能が改善され、[component health Service Level Indicators (SLIs)](/docs/reference/instrumentation/slis/)が[アルファとなりました。](https://github.com/kubernetes/kubernetes/pull/112884) `ComponentSLIs` 機能フラグを有効にすることで、追加のメトリクスエンドポイントが利用できるようになります。それによりサービスレベルオブジェクティブ(SLO)の計算を可能にする追加のメトリクスエンドポイントが存在するようになります。
+また、Kubernetesのメトリクスを消費する機能が改善され、[component health Service Level Indicators (SLIs)](https://kubernetes.io/docs/reference/instrumentation/slis/)が[アルファとなりました。](https://github.com/kubernetes/kubernetes/pull/112884) `ComponentSLIs` 機能フラグを有効にすることで、追加のメトリクスエンドポイントが利用できるようになります。それによりサービスレベルオブジェクティブ(SLO)の計算を可能にする追加のメトリクスエンドポイントが存在するようになります。
 
 #### Feature metrics are now available
 
@@ -101,15 +101,15 @@ Kubernetesの各コンポーネントに対して機能メトリック（Feature
 
 ### Dynamic Resource Allocation graduates to alpha
 
-[ダイナミック・リソースアロケーション](/docs/concepts/scheduling-eviction/dynamic-resource-allocation/)、サードパーティの開発者がリソースのスケジューリングを行えるようにする[新機能](/docs/cepts/scheduling-eviction/dynamic-resource-allocation/) です。
+[ダイナミック・リソースアロケーション](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/)、サードパーティの開発者がリソースのスケジューリングを行えるようにする[新機能](https://kubernetes.io/docs/cepts/scheduling-eviction/dynamic-resource-allocation/) です。
 リソースへのアクセスを要求するための制限された "countable" インターフェースに代わるものです。
 (例: `nvidia.com/gpu: 2`) リソースへのアクセスを要求するための限定的なより永続ボリュームに類似した API を提供します。内部実装としては、[Container Device Interface](CDI)(https://github.com/container-orchestrated-devices/container-device-interface)を使用して、デバイスインジェクションを行います。
 この機能は `DynamicResourceAllocation` フィーチャーゲートでブロックされます。（アルファのため、デフォルトではOffということを言っていると思われる。）
 
 ### CEL in Admission Control graduates to alpha
 
-[この機能](https://github.com/kubernetes/enhancements/issues/3488) は [validating admission policies](/docs/reference/access-authn-authz/validating-admission-policy/) の`v1alpha1` API を導入します。
-有効にすることで、[Common Expression Language](https://github.com/google/cel-spec)式による拡張可能なアドミッション制御を可能にします。現在ではカスタムポリシーは [admission webhooks](/docs/reference/access-authn-authz/extensible-admission-controllers/) を介して実施されています。
+[この機能](https://github.com/kubernetes/enhancements/issues/3488) は [validating admission policies](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/) の`v1alpha1` API を導入します。
+有効にすることで、[Common Expression Language](https://github.com/google/cel-spec)式による拡張可能なアドミッション制御を可能にします。現在ではカスタムポリシーは [admission webhooks](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/) を介して実施されています。
 これは柔軟性がある一方で、プロセス内のポリシー適用と比較すると、いくつかの欠点があります。CELを使用するには`ValidatingAdmissionPolicy`フィーチャーゲートと APIの`admissionregistration.k8s.io/v1alpha1`を`--runtime-config` 経由で有効にします。
 
 ### Pod scheduling improvements
@@ -118,13 +118,13 @@ Kubernetes v1.26では、スケジューリングの動作をより適切に制�
 
 #### `PodSchedulingReadiness` graduates to alpha
 
-[この機能](https://github.com/kubernetes/enhancements/issues/3521)は、PodのAPIに `.spec.schedulingGates` フィールドを導入します。これによって[Podをスケジューリングから除外することを表現できます。](/docs/concepts/scheduling-eviction/pod-scheduling-readiness/)
+[この機能](https://github.com/kubernetes/enhancements/issues/3521)は、PodのAPIに `.spec.schedulingGates` フィールドを導入します。これによって[Podをスケジューリングから除外することを表現できます。](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-scheduling-readiness/)
 外部ユーザー/コントローラーは、このフィールドを使用して、ポリシーとニーズに基づいてPodのスケジューリングを抑えることができます。
 
 #### `NodeInclusionPolicyInPodTopologySpread` graduates to beta
 
 `topologySpreadConstraints` で `nodeInclusionPolicy` を指定することで、以下のことが制御可能になります。
-Pod Topology Spreadのスキューを計算するときに[TaintやTolerationを考慮](/docs/concepts/scheduling-eviction/topology-spread-constraints/) するかどうかを制御できます。
+Pod Topology Spreadのスキューを計算するときに[TaintやTolerationを考慮](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/) するかどうかを制御できます。
 
 ## Other Updates
 
@@ -146,7 +146,7 @@ Pod Topology Spreadのスキューを計算するときに[TaintやTolerationを
 
 ### Deprecations and removals
 
-このリリースで12個の機能が[非推奨または削除](/blog/2022/11/18/upcoming-changes-in-kubernetes-1-26/)され、Kubernetesから削除されました。
+このリリースで12個の機能が[非推奨または削除](https://kubernetes.io/blog/2022/11/18/upcoming-changes-in-kubernetes-1-26/)され、Kubernetesから削除されました。
     
 * [CRI `v1alpha2` API is removed](https://github.com/kubernetes/kubernetes/pull/110618)
 * [Removal of the `v1beta1` flow control API group](https://kubernetes.io/docs/reference/using-api/deprecation-guide/#flowcontrol-resources-v126)
@@ -168,8 +168,8 @@ Kubernetes v1.26リリースの完全な詳細は、我々の[リリースノー
 ### Availability
 
 Kubernetes v1.26は、[Kubernetesサイト](https://k8s.io/releases/download/)でダウンロードできます。
-Kubernetesを使い始めるには、以下の[インタラクティブチュートリアル](/docs/tutorials/)をチェックアウトするか、またはローカルでコンテナを「ノード」として使用するKubernetesクラスタを[kind](https://kind.sigs.k8s.io/)で実行することもできます。
-また [kubeadm](/docs/setup/independent/create-cluster-kubeadm/) を使って簡単にv1.26をインストールすることができます。
+Kubernetesを使い始めるには、以下の[インタラクティブチュートリアル](https://kubernetes.io/docs/tutorials/)をチェックアウトするか、またはローカルでコンテナを「ノード」として使用するKubernetesクラスタを[kind](https://kind.sigs.k8s.io/)で実行することもできます。
+また [kubeadm](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/) を使って簡単にv1.26をインストールすることができます。
 
 ### Release team
 
