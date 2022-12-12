@@ -21,13 +21,14 @@ Kubernetes v1.26のテーマは _しびれること(Electrifying)_ です。
 
 それぞれのKubernetesリリースは、献身的なボランティアによる強調した努力の結果です。
 これは、世界中の複数のデータセンターと地域にある多様で複雑なコンピューティングリソースのセットを使用することで可能になりました。
-リリースの最終成果物であるバイナリ、イメージコンテナ、ドキュメントは、ますます多くの個人利用、オンプレミス、およびクラウドコンピューティングリソースにデプロイされています。
+リリースの最終成果物であるバイナリ、イメージコンテナ、ドキュメントは、ますます多くの個人の環境、オンプレミス、およびクラウドコンピューティングリソースにデプロイされています。
 
-今回のリリースでは、Kubernetesの開発および利用の基盤となるこれらすべての構成要素の重要性を認識すると同時に、Kubernetesを利用する際には、次の点に留意する必要があります。
-環境持続可能性(Environmental Sustainability)は、あらゆるソフトウェアソリューションの作成者と利用者にとって避けられない関心事です。
-また、Kubernetesのようなソフトウェアの環境フットプリント(Environmental Footprint)は、今後のリリースで重要な役割を果たすと信じています。
+今回のリリースでは、Kubernetesの開発および利用の基盤となるこれらすべての構成要素の重要性を認識すると同時に、Kubernetesを利用する際には次の点に留意する必要があります。
+環境持続可能性(environmental sustainability)は、あらゆるソフトウェアソリューションの作成者と利用者にとって避けられない関心事です。
+また、Kubernetesのようなソフトウェアの環境フットプリント(environmental footprint)は、今後のリリースで重要な役割を果たすと信じています。
 
-コミュニティとして、私たちは常に新しいリリースのプロセスを以前より良くするために努力しています。（例えば、今回のリリースで私たちは[機能拡張の追跡にGitHubのProjectsの使用を開始しました](https://github.com/orgs/kubernetes/projects/98/views/1))。[v1.24 "Stargazer"](https://kubernetes.io/blog/2022/05/03/kubernetes-1-24-release-announcement/) では _もし私たちが上を向いて、私たちのコミュニティが一緒になれば何ができるかを考えていました。_ そして[v1.25 "Combiner"](https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/)では、 私たちのコミュニティが力を合わせると何ができるのか？_ を考えていました。
+コミュニティとして、私たちは常に新しいリリースのプロセスを以前より良くするために努力しています。（例えば、今回のリリースで私たちは[機能拡張の追跡にGitHubのProjectsの使用を開始しました](https://github.com/orgs/kubernetes/projects/98/views/1))。
+[v1.24 "Stargazer"](https://kubernetes.io/blog/2022/05/03/kubernetes-1-24-release-announcement/) では _もし私たちが上を向いて、私たちのコミュニティが一緒になれば何ができるかを考えていました。そして[v1.25 "Combiner"](https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/)では、 _私たちのコミュニティが力を合わせると何ができるのか？_ を考えていました。
 このv1.26 "Electrifying"もまた、リリースフローに統合された個人の動きで、私たちのコミュニティができることに貢献したすべての人に捧げます。
 
 ## Major themes
@@ -45,10 +46,10 @@ Kubernetes v1.26は、世界中のボランティアチームによってもた�
 
 [Container Runtime Interface](https://kubernetes.io/docs/concepts/architecture/cri/) (CRI)の採用や[dockershimの削除](https://kubernetes.io/blog/2022/02/17/dockershim-faq/) がv1.24で実施されたことにより、CRIは、Kubernetesが異なるコンテナと対話するために唯一サポートされ、かつ文書化された方法となりました。各kubeletは、そのノード上のコンテナランタイムと使用するCRIのバージョンをネゴシエートします。
 
-以前のリリースでは、KubernetesプロジェクトはCRIバージョン`v1`の使用を推奨していました。kubeletはまだ CRI `v1alpha2` の使用をネゴシエートできましたが、これは非推奨となりました。
+以前のリリースでは、KubernetesプロジェクトはCRIバージョン`v1`の使用を推奨していました。kubeletはまだ CRI `v1alpha2` を使用できましたがこれは非推奨となっていました。
 
-Kubernetes v1.26 では、CRI `v1alpha2` のサポートが打ち切られました。 その[削除](https://github.com/kubernetes/kubernetes/pull/110618) は、コンテナランタイムがCRI `v1` をサポートしていない場合、kubeletがノードを登録しない結果になります。
-コンテナランタイムがCRI `v1` をサポートしていない場合、kubeletがノードを登録しないという結果になります。これは、containerdのマイナーバージョン1.5以前がKubernetes 1.26でサポートされないということです。containerd を使用する場合は、そのノードを Kubernetes にアップグレード **する前** に containerd をバージョン 1.6.0 またはそれ以降にアップグレードする必要があります。これは `v1alpha2` のみをサポートする他のコンテナランタイムにも同様に当てはまります。コンテナランタイムのベンダーに相談するか、そのウェブサイトをチェックしてください。
+Kubernetes v1.26 では、CRI `v1alpha2` のサポートが打ち切られました。 この[削除](https://github.com/kubernetes/kubernetes/pull/110618) は、コンテナランタイムがCRI `v1` をサポートしていない場合、kubeletがノードを登録しないという結果になります。
+これは、containerdのマイナーバージョン1.5以前がKubernetes 1.26でサポートされないということです。containerd を使用する場合は、そのノードのKubernetesをアップグレード **する前** に containerd をバージョン 1.6.0 またはそれ以降にアップグレードする必要があります。これは `v1alpha2` のみをサポートする他のコンテナランタイムにも同様に当てはまります。コンテナランタイムのベンダーに相談するかそのウェブサイトをチェックしてください。
 
 ### Storage improvements
 
@@ -66,7 +67,7 @@ CSIの移行は、以前のリリースに含まれていた[コアのコンテ�
 
 #### In-tree GlusterFS driver removal
 
-v1.25リリースですでに非推奨となっていた、インツリーのGlusterFSドライバは、このリリースで[削除](https://github.com/kubernetes/enhancements/issues/3446)されました。
+v1.25リリースですでに非推奨となっていたインツリーのGlusterFSドライバは、このリリースで[削除](https://github.com/kubernetes/enhancements/issues/3446)されました。
 
 #### In-tree OpenStack Cinder driver removal
 
@@ -74,7 +75,7 @@ v1.25リリースですでに非推奨となっていた、インツリーのGlu
 
 ### Signing Kubernetes release artifacts graduates to beta
 
-Kubernetes v1.24で導入された、[この機能](https://github.com/kubernetes/enhancements/issues/3031)は、Kubernetesのリリースプロセスのセキュリティを向上させる上で重要なマイルストーンとなります。すべてのリリースアーティファクトは[cosign](https://github.com/sigstore/cosign/)を使用してキーレスで署名され、バイナリアーティファクトとイメージの両方が[検証可能](https://kubernetes.io/docs/tasks/administer-cluster/verify-signed-artifacts/)です。
+Kubernetes v1.24で導入された[この機能](https://github.com/kubernetes/enhancements/issues/3031)は、Kubernetesのリリースプロセスのセキュリティを向上させる上で重要なマイルストーンとなります。すべてのリリースアーティファクトは[cosign](https://github.com/sigstore/cosign/)を使用してキーレスで署名され、バイナリアーティファクトとイメージの両方が[検証可能](https://kubernetes.io/docs/tasks/administer-cluster/verify-signed-artifacts/)です。
 
 ### Support for Windows privileged containers graduates to stable
 
@@ -87,23 +88,23 @@ Kubernetes v1.24で導入された、[この機能](https://github.com/kubernete
 
 #### Metrics framework extension graduates to alpha
 
-メトリックスフレームワークの拡張機能[がアルファとなりました](https://github.com/kubernetes/enhancements/issues/3498)。
-[Kubernetesコードベースのすべてのメトリックについてドキュメントが公開されました](https://kubernetes.io/docs/reference/instrumentation/metrics/)。
-この拡張は、2つの追加のメタデータフィールドを追加します。それは`Internal`と`Beta`で、メトリックの成熟度の異なる段階を表しています。
+メトリクスフレームワークの拡張機能が[アルファとなりました](https://github.com/kubernetes/enhancements/issues/3498)。
+[Kubernetesコードベースのすべてのメトリクスについてドキュメントが公開されました](https://kubernetes.io/docs/reference/instrumentation/metrics/)。
+この拡張は、2つの追加のメタデータフィールドを追加します。それは`Internal`と`Beta`で、メトリクスの成熟度の異なる段階を表しています。
 
 #### Component Health Service Level Indicators graduates to alpha
 
-また、Kubernetesのメトリクスを消費する機能が改善され、[component health Service Level Indicators (SLIs)](https://kubernetes.io/docs/reference/instrumentation/slis/)が[アルファとなりました。](https://github.com/kubernetes/kubernetes/pull/112884) `ComponentSLIs` 機能フラグを有効にすることで、追加のメトリクスエンドポイントが利用できるようになります。それによりサービスレベルオブジェクティブ(SLO)の計算を可能にする追加のメトリクスエンドポイントが存在するようになります。
+Kubernetesのメトリクスを消費する機能が改善され、[component health Service Level Indicators (SLIs)](https://kubernetes.io/docs/reference/instrumentation/slis/)が[アルファとなりました。](https://github.com/kubernetes/kubernetes/pull/112884) `ComponentSLIs` 機能フラグを有効にすることで、追加のメトリクスエンドポイントが利用できるようになります。それによりサービスレベル目標(SLO)の計算を可能にする追加のメトリクスエンドポイントが存在するようになります。
 
 #### Feature metrics are now available
 
-Kubernetesの各コンポーネントに対して機能メトリック（Feature metrics）が利用できるようになり、`kubernetes_feature_enabled` をチェックすることで、[各アクティブなフィーチャーゲートが有効かどうかを追跡する](https://github.com/kubernetes/kubernetes/pull/112690)ことが可能になりました。
+Kubernetesの各コンポーネントに対して機能メトリクス（Feature metrics）が利用できるようになり、`kubernetes_feature_enabled` をチェックすることで、[アクティブなフィーチャーゲートが有効かどうかを追跡する](https://github.com/kubernetes/kubernetes/pull/112690)ことが可能になりました。
 
 ### Dynamic Resource Allocation graduates to alpha
 
-[ダイナミック・リソースアロケーション](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/)、サードパーティの開発者がリソースのスケジューリングを行えるようにする[新機能](https://kubernetes.io/docs/cepts/scheduling-eviction/dynamic-resource-allocation/) です。
+[ダイナミック・リソースアロケーション](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/)は、サードパーティの開発者がリソースのスケジューリングを行えるようにする[新機能](https://kubernetes.io/docs/cepts/scheduling-eviction/dynamic-resource-allocation/) です。
 リソースへのアクセスを要求するための制限された "countable" インターフェースに代わるものです。
-(例: `nvidia.com/gpu: 2`) リソースへのアクセスを要求するための限定的なより永続ボリュームに類似した API を提供します。内部実装としては、[Container Device Interface](CDI)(https://github.com/container-orchestrated-devices/container-device-interface)を使用して、デバイスインジェクションを行います。
+(例: `nvidia.com/gpu: 2`) リソースへのアクセスを要求するための限定的なより永続ボリュームに類似した API を提供します。内部実装としては、[Container Device Interface](https://github.com/container-orchestrated-devices/container-device-interface)(CDI)を使用して、デバイスインジェクションを行います。
 この機能は `DynamicResourceAllocation` フィーチャーゲートでブロックされます。（アルファのため、デフォルトではOffということを言っていると思われる。）
 
 ### CEL in Admission Control graduates to alpha
@@ -179,13 +180,13 @@ Kubernetesは、そのコミュニティのサポート、コミットメント�
 私たちは、コミュニティにKubernetes v1.26リリースを確実に提供するために多大な時間を費やしてくれた[リリースチーム](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.26/release-team.md)全体に感謝します。
 
 リリース・リードのLeonard Pahlkeには、リリース・サイクル全体を通して、私たちリリース・チーム全体をうまく舵取りしてくれたことに、特別な感謝を捧げたいと思います。
-このリリースで私たち全員が最高の形で貢献できるよう、リリースを成功に導くための多くの様々なな事柄に常にサポートと配慮を怠りませんでした。
+このリリースで私たち全員が最高の形で貢献できるよう、リリースを成功に導くための多くの様々なな事柄に常にサポートと配慮してくれました。
 
 ### User highlights
     
 * Wortellは、開発者の専門知識と日々のインフラ管理に要する時間がますます増えていくことに直面していました。[Daprを使用することで、インフラ関連のコードの複雑さと必要な量を削減し、より多くの時間を新しいインフラ管理に集中できるようになりました。](https://www.cncf.io/case-studies/wortell/)
 * Utmostは、機密性の高い個人情報を取り扱うため、SOC 2 Type II認証、ISO 27001認証、ゼロ・トラストネットワーク認証が必要でした。[Ciliumを使用して、開発者が新しいポリシーを作成し、毎秒4,000以上のフローをサポートすることを可能にする自動パイプラインを作成しました。](https://www.cncf.io/case-studies/utmost/)
-* グローバルなサイバーセキュリティ企業であるEricom社のソリューションは、超低遅延とデータセキュリティに依存しています。[RidgeのマネージドKubernetesサービスにより、彼らは単一のAPIを通じて、世界中のサービスプロバイダのネットワークにデプロイすることができました。](https://www.cncf.io/case-studies/ericom/)
+* グローバルなサイバーセキュリティ企業であるEricomのソリューションは、超低遅延とデータセキュリティに依存しています。[RidgeのマネージドKubernetesサービスにより、彼らは単一のAPIを通じて、世界中のサービスプロバイダのネットワークにデプロイすることができました。](https://www.cncf.io/case-studies/ericom/)
 * スカンジナビアのオンライン銀行である Lunarは、ディザスタリカバリに備え、四半期ごとに本番クラスタのフェイルオーバーテストを実施したいと考えていました。また、プラットフォームサービスを管理するためのより良い方法を必要としていました。
   [クラスターを接続するためにLinkerdを使用することで、ログ管理システムの一元化からスタートし、すべてのプラットフォームサービスを一元化しました。](https://www.cncf.io/case-studies/lunar/)
 * Datadogは、複数のクラウドプロバイダーで10,000以上のノードと100,000以上のポッドを持つ数十のクラスタを実行しています。[CiliumをCNIとして使い kube-proxyの代替とし、eBPF のパワーを活用し、あらゆるクラウドでユーザーに一貫したネットワーク体験を提供することにしました。](https://www.cncf.io/case-studies/datadog/)
@@ -193,24 +194,19 @@ Kubernetesは、そのコミュニティのサポート、コミットメント�
 
 ### Ecosystem updates
 
-* KubeCon + CloudNativeCon Europe 2023 は、オランダのアムステルダムで 2023年4月17日 〜 21 日に開催されます。カンファレンスに関する詳細や参加登録は、[イベント
-  サイト](https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/)をご覧ください。
+* KubeCon + CloudNativeCon Europe 2023 は、オランダのアムステルダムで 2023年4月17日 〜 21 日に開催されます。カンファレンスに関する詳細や参加登録は、[イベントサイト](https://events.linuxfoundation.org/kubecon-cloudnativecon-europe/)をご覧ください。
 * CloudNativeSecurityCon North Americaは、クラウドネイティブセキュリティプロジェクトのコラボレーション、ディスカッション、知識の共有し、セキュリティの課題と機会に対処するためにこれらをどのように活用するかを目的とした2日間のイベントです。アメリカのシアトルで2023年2月1日〜2日に開催されます。詳細は、[イベントページ](https://events.linuxfoundation.org/cloudnativesecuritycon-north-america/)をご覧ください。
-* CNCFは【2022年コミュニティアワード受賞者】(https://www.cncf.io/announcements/2022/10/28/cloud-native-computing-foundation-reveals-2022-community-awards-winners/)を発表しました。コミュニティアワードは、クラウドネイティブテクノロジーを発展させ、さらにそれ以上のことをしているCNCFコミュニティメンバーを表彰するものです。
+* CNCFは[2022年コミュニティアワード受賞者](https://www.cncf.io/announcements/2022/10/28/cloud-native-computing-foundation-reveals-2022-community-awards-winners/)を発表しました。コミュニティアワードは、クラウドネイティブテクノロジーを発展させ、さらにそれ以上のことをしているCNCFコミュニティメンバーを表彰するものです。
 
 ### Project velocity
 
-[CNCF K8s DevStats](https://k8s.devstats.cncf.io/d/12/dashboards?orgId=1&refresh=15m)プロジェクトは、Kubernetesと様々なサブプロジェクトのベロシティに関連する多くの興味深いデータポイントを集約しています。これには、個人の貢献から、貢献している企業の数まで、あらゆるものが含まれています。このエコシステムを進化させるために費やされる努力の深さと広さを示しています。
+[CNCF K8s DevStats](https://k8s.devstats.cncf.io/d/12/dashboards?orgId=1&refresh=15m)プロジェクトは、Kubernetesと様々なサブプロジェクトのベロシティに関連する多くの興味深いデータポイントを集約しています。これには、個人の貢献から貢献している企業の数まであらゆるものが含まれています。このエコシステムを進化させるために費やされる努力の深さと広さを示しています。
 
 v1.26 のリリースサイクルでは、[14 週間が費やされ](https://github.com/kubernetes/sig-release/tree/master/releases/release-1.26)(9月5日から12月9日まで)、[976社](https://k8s.devstats.cncf.io/d/9/companies-table?orgId=1&var-period_name=v1.25.0%20-%20v1.26.0&var-metric=contributions) と [6877人](https://k8s.devstats.cncf.io/d/66/developer-activity-counts-by-companies?orgId=1&var-period_name=v1.25.0%20-%20v1.26.0&var-metric=contributions&var-repogroup_name=Kubernetes&var-country_name=All&var-companies=All&var-repo_name=kubernetes%2Fkubernetes) からの貢献がありました。
 
 ## Upcoming Release Webinar
 
-Join members of the Kubernetes v1.26 release team on Tuesday January 17, 2023 10am - 11am EST (3pm - 4pm UTC) to learn about the major features
-of this release, as well as deprecations and removals to help plan for upgrades.  For more information and registration, visit the [event
-page](https://community.cncf.io/events/details/cncf-cncf-online-programs-presents-cncf-live-webinar-kubernetes-v126-release/).
-
-Kubernetes v1.26 リリースチームのメンバーが、2023年1月17日（火）10am 〜 11am EST (3pm - 4pm UTC) に、このリリースの主要機能についての情報を提供します。
+Kubernetes v1.26 リリースチームのメンバーが、2023年1月17日（火）10:00AM 〜 11:00AM EST (3:00PM 〜 4:00PM UTC) に、このリリースの主要機能についての情報を提供します。
 このリリースの主な機能、およびアップグレードの計画に役立つ非推奨と削除について学べます。 
 詳細と参加登録は、[イベントページ](https://community.cncf.io/events/details/cncf-cncf-online-programs-presents-cncf-live-webinar-kubernetes-v126-release/)をご覧ください。
 
