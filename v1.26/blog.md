@@ -17,7 +17,7 @@ Kubernetes v1.26 のリリースを発表できることを非常に嬉しく思
 
 ![Kubernetes 1.26 Electrifying logo](https://d33wubrfki0l68.cloudfront.net/852be6960c90223d8d573098bc3f0c16b56b2252/b1ba9/images/blog/2022-12-08-kubernetes-1.26-release/kubernetes-1.26.png)
 
-Kubernetes v1.26のテーマは _しびれること(Electrifying)_ です。
+Kubernetes v1.26のテーマは _しびれさせる(Electrifying)_ です。
 
 それぞれのKubernetesリリースは、献身的なボランティアによる強調した努力の結果です。
 これは、世界中の複数のデータセンターと地域にある多様で複雑なコンピューティングリソースのセットを使用することで可能になりました。
