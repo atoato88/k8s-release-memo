@@ -1,7 +1,7 @@
 本ドキュメントは意訳になります。
 また、動作の詳細な確認、関連機能の調査などをしていないため、解釈ミス・翻訳ミスが含まれる可能性があることをご了承ください。
 
-原文:https://kubernetes.io/blog/2022/12/09/kubernetes-v1-26-release/
+原文: https://kubernetes.io/blog/2022/12/09/kubernetes-v1-26-release/
 
 ---
 
