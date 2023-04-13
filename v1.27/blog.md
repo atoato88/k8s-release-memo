@@ -1,8 +1,8 @@
----
-layout: blog
-title: "Kubernetes v1.27: Chill Vibes"
-date: 2023-04-11
-slug: kubernetes-v1-27-release
+本ドキュメントは意訳になります。
+また、動作の詳細な確認、関連機能の調査などをしていないため、解釈ミス・翻訳ミスが含まれる可能性があることをご了承ください。
+
+原文: https://kubernetes.io/blog/2023/04/11/kubernetes-v1-27-release/
+
 ---
 
 **Authors**: [Kubernetes v1.27 Release Team](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.27/release-team.md)
