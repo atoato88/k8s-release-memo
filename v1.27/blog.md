@@ -51,7 +51,7 @@ Kubernetes v1.27のテーマは*穏やかな雰囲気*です。
 
 ## `SeccompDefault` graduates to stable
 
-seccompプロファイルのデフォルト設定を使用するには、使用する各ノードで `--seccomp-default` [command line flag](/docs/reference/command-line-tools-reference/kubelet) を有効にして kubelet を実行する必要があります。
+seccompプロファイルのデフォルト設定を使用するには、使用する各ノードで `--seccomp-default` [command line flag](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet) を有効にして kubelet を実行する必要があります。
 有効にすると、kubeletは`Unconfined`（seccomp無効）モードを使用せず、コンテナランタイムが定義する`RuntimeDefault` seccompプロファイルをデフォルトで使用します。デフォルトのプロファイルは、ワークロードの機能を維持しながら、強力なセキュリティデフォルトのセットを提供することを目的としています。デフォルトのプロファイルは、コンテナランタイムとそのリリースバージョンによって異なる可能性があります。
 
 可能なアップグレードとダウングレードの戦略に関する詳細情報は、関連するKubernetes Enhancement Proposal (KEP)に記載されています： [Enable seccomp by default](https://github.com/kubernetes/enhancements/tree/master/keps/sig-node/2413-seccomp-by-default)。
@@ -64,14 +64,14 @@ seccompプロファイルのデフォルト設定を使用するには、使用�
 Podの配置に影響を与えることができると同時に、実際のPodからノードへの割り当てをkube-schedulerにオフロードすることができます。
 これは、過去に一度もサスペンドされたことのないサスペンドジョブに対してのみ許可されます。
 ジョブのPodテンプレートで更新可能なフィールドは、node affinity、node selector、tolerations、labels、
-annotations、[scheduling gates](/docs/concepts/scheduling-eviction/pod-scheduling-readiness/) があります。
+annotations、[scheduling gates](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-scheduling-readiness/) があります。
 詳しくはKEPをご覧ください：
 [Allow updating scheduling directives of jobs](https://github.com/kubernetes/enhancements/tree/master/keps/sig-scheduling/2926-job-mutable-scheduling-directives)。
 
 
 ## DownwardAPIHugePages graduates to stable 
 
-Kubernetes v1.20で、`requests.hugepages-<pagesize>` と `limits.hugepages-<pagesize>` が[downward API](/docs/concepts/workloads/pods/downward-api/) に追加されていました。これは、cpu、メモリ、エフェメラルストレージなどの他のリソースと一貫性を持っています。
+Kubernetes v1.20で、`requests.hugepages-<pagesize>` と `limits.hugepages-<pagesize>` が[downward API](https://kubernetes.io/docs/concepts/workloads/pods/downward-api/) に追加されていました。これは、cpu、メモリ、エフェメラルストレージなどの他のリソースと一貫性を持っています。
 この機能は、このリリースでgraduatedとなりました。詳細はKEPに記載されています：
 [Downward API HugePages](https://github.com/kubernetes/enhancements/tree/master/keps/sig-node/2053-downward-api-hugepages)をご覧ください。
 
@@ -85,16 +85,16 @@ Podの `.spec.schedulingGates` を指定/削除することで、Podがスケジ
 
 ## Node log access via Kubernetes API
 
-この機能は、クラスタ管理者がサービスログを要求できるようにすることで、ノード上で実行されているサービスの問題をデバッグするのに役立ちます。この機能を使用するには、そのノードで `NodeLogQuery` [feature gate](/docs/reference/command-line-tools-reference/feature-gates/) が有効になっており、kubelet 設定オプション `enableSystemLogHandler` と `enableSystemLogQuery` が両方とも true に設定されていることを確認してください。
+この機能は、クラスタ管理者がサービスログを要求できるようにすることで、ノード上で実行されているサービスの問題をデバッグするのに役立ちます。この機能を使用するには、そのノードで `NodeLogQuery` [feature gate](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/) が有効になっており、kubelet 設定オプション `enableSystemLogHandler` と `enableSystemLogQuery` が両方とも true に設定されていることを確認してください。
 Linuxでは、サービスログがjournald経由で利用可能であることを想定しています。Windowsでは、サービスログがアプリケーションログプロバイダーで利用可能であると仮定しています。また、それぞれLinuxでは`/var/log/`、Windowsでは`C:\log`ディレクトリからログを取得することができます。
 
 クラスタ管理者は、クラスタの全ノード、またはそのサブセットでこのアルファ機能を試すことができます。
 
 ## ReadWriteOncePod PersistentVolume access mode goes to beta 
 
-Kuberentes `v1.22` では、[PersistentVolumes](/docs/concepts/storage/persistent-volumes/#persistent-volumes) (PV) と [PersistentVolumeClaims](/docs/concepts/storage/persistent-volumeclaims) (PVCs) に対して新しいアクセスモード `ReadWriteOncePod` を追加しました。このアクセスモードでは、クラスター内の単一のポッドにボリュームアクセスを制限し、一度に1つのポッドのみがボリュームに書き込めるようにします。これは、ストレージへの単一の書き込みアクセスを必要とするステートフルなワークロードに特に有用です。
+Kuberentes `v1.22` では、[PersistentVolumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes) (PV) と [PersistentVolumeClaims](https://kubernetes.io/docs/concepts/storage/persistent-volumeclaims) (PVCs) に対して新しいアクセスモード `ReadWriteOncePod` を追加しました。このアクセスモードでは、クラスター内の単一のポッドにボリュームアクセスを制限し、一度に1つのポッドのみがボリュームに書き込めるようにします。これは、ストレージへの単一の書き込みアクセスを必要とするステートフルなワークロードに特に有用です。
 
-ReadWriteOncePodのベータ版は、ReadWriteOncePod PVCを使用するの[scheduler preemption](/docs/concepts/scheduling-eviction/pod-priority-preemption/)をサポートします。
+ReadWriteOncePodのベータ版は、ReadWriteOncePod PVCを使用するの[scheduler preemption](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/)をサポートします。
 Scheduler preemptionにより、優先度の高いポッドが優先度の低いポッドを先取りすることができます。例えば、`ReadWriteOncePod`のPVCを持つポッド（A）がスケジュールされているとき、同じPVCを使用している別のPod（B）が見つかり、Pod（A）の方が優先度が高い場合、スケジューラは`Unschedulable`ステータスを返してPod（B）の先取りを試みます。
 より詳しいコンテキストについては、KEP: [ReadWriteOncePod PersistentVolume AccessMode](https://github.com/kubernetes/enhancements/tree/master/keps/sig-storage/2485-read-write-once-pod-pv-access-mode)を参照してください。
 
