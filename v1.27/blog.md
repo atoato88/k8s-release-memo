@@ -92,7 +92,7 @@ Linuxでは、サービスログがjournald経由で利用可能であること�
 
 ## ReadWriteOncePod PersistentVolume access mode goes to beta 
 
-Kuberentes `v1.22` では、[PersistentVolumes] (/docs/concepts/storage/persistent-volumes/#persistent-volumes) (PV) と [PersistentVolumeClaims] (/docs/concepts/storage/persistent-volumeclaims) (PVCs) に対して新しいアクセスモード `ReadWriteOncePod` を追加しました。このアクセスモードでは、クラスター内の単一のポッドにボリュームアクセスを制限し、一度に1つのポッドのみがボリュームに書き込めるようにします。これは、ストレージへの単一の書き込みアクセスを必要とするステートフルなワークロードに特に有用です。
+Kuberentes `v1.22` では、[PersistentVolumes](/docs/concepts/storage/persistent-volumes/#persistent-volumes) (PV) と [PersistentVolumeClaims](/docs/concepts/storage/persistent-volumeclaims) (PVCs) に対して新しいアクセスモード `ReadWriteOncePod` を追加しました。このアクセスモードでは、クラスター内の単一のポッドにボリュームアクセスを制限し、一度に1つのポッドのみがボリュームに書き込めるようにします。これは、ストレージへの単一の書き込みアクセスを必要とするステートフルなワークロードに特に有用です。
 
 ReadWriteOncePodのベータ版は、ReadWriteOncePod PVCを使用するの[scheduler preemption](/docs/concepts/scheduling-eviction/pod-priority-preemption/)をサポートします。
 Scheduler preemptionにより、優先度の高いポッドが優先度の低いポッドを先取りすることができます。例えば、`ReadWriteOncePod`のPVCを持つポッド（A）がスケジュールされているとき、同じPVCを使用している別のPod（B）が見つかり、Pod（A）の方が優先度が高い場合、スケジューラは`Unschedulable`ステータスを返してPod（B）の先取りを試みます。
