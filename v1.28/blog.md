@@ -15,7 +15,7 @@ Kubernetes v1.28 Planternetesのリリースを発表、2023年の第2弾です�
 
 Kubernetes v1.28のテーマは *Planternetes* です。
 
-{{< figure src="/images/blog/2023-08-15-kubernetes-1.28-blog/kubernetes-1.28.png" alt="Kubernetes 1.28 Planternetes logo" class="release-logo" >}}
+![Kubernetes 1.28 Planternetes logo](https://d33wubrfki0l68.cloudfront.net/4278c8cbdc54f4c51e0e0dc7c2768cf698899251/f3a1b/images/blog/2023-08-15-kubernetes-1.28-blog/kubernetes-1.28.png)
 
 Kubernetesの各リリースは、私たちのコミュニティの何千人もの個人のハードワークの集大成です。このリリースを支えているのは、業界のベテラン、親、学生、オープンソース初心者など、さまざまなバックグラウンドを持つ人々です。私たちは、それぞれのユニークな経験を組み合わせて、世界的な影響力を持つ集合的な成果物を作り上げました。
 
