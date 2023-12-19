@@ -29,7 +29,7 @@ Kubernetes v1.29で宇宙の旅に出かけましょう！
 
 曼荼羅の変容の象徴の精神に基づき、Kubernetes v1.29は私たちのプロジェクトの進化を祝福します。Kubernetesの宇宙の星のように、それぞれの貢献者、ユーザー、サポーターが道を照らします。共に、私たちは可能性の宇宙を創造します。
 
-## Improvements that graduated to stable in Kubernetes v1.29 {#graduations-to-stable}
+## Improvements that graduated to stable in Kubernetes v1.29 
 
 _これは、v1.29リリース後に安定版の改良点の一部です。_
 
