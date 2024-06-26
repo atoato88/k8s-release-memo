@@ -42,11 +42,11 @@ _これは、v1.30リリース後に安定版となった改良点の一部で�
 
 Kubernetes v1.30では、スナップショットをPersistentVolumeにリストアする際、コントロールプレーンは常にボリュームモードへの不正な変更を防止します。クラスタ管理者として、リストア時にこの種の変更を許可する必要がある場合は、適切なIDプリンシパル（たとえば、ストレージ統合を表すServiceAccounts）にパーミッションを付与する必要があります。
 
-{{< warning >}}
+**注意**  
 アップグレード前に必要なアクションがあります。 external-provisioner `v4.0.0` および external-snapshotter `v7.0.0` では、`prevent-volume-mode-conversion` 機能フラグがデフォルトで有効になっています。[external-provisioner 4.0.0](https://github.com/kubernetes-csi/external-provisioner/releases/tag/v4.0.0)および[external-snapshotter v7.0.0](https://github.com/kubernetes-csi/external-snapshotter/releases/tag/v7.0.0)の「緊急アップグレードに関する注意事項」に記載されている手順を実行しない限り、VolumeSnapshotからPVCを作成する際にボリュームモードの変更が拒否されます。
-{{< /warning >}}
 
-この機能の詳細については、[スナップショットのボリュームモードを変換する](/docs/concepts/storage/volume-snapshots/#convert-volume-mode)も参照してください。
+
+この機能の詳細については、[スナップショットのボリュームモードを変換する](https://kubernetes.io/docs/concepts/storage/volume-snapshots/#convert-volume-mode)も参照してください。
 
 
 ### Pod Scheduling Readiness ([SIG Scheduling](https://github.com/kubernetes/community/tree/master/sig-scheduling))
@@ -55,7 +55,7 @@ Kubernetes v1.27でベータ版に昇格した _Pod scheduling readiness_ は、
 
 この安定版となった機能により、Kubernetesは、クラスタがまだそのPodを実際にノードにバインドするためのリソースをプロビジョニングしていないときに、定義済みのPodをスケジュールしようとするのを回避できるようになりました。Podのスケジュールを許可するかどうかのカスタムコントロールによって、クォータメカニズムやセキュリティコントロールなどを実装することもできます。
 
-重要なのは、これらのPodをスケジューリング対象外としてマークすることで、スケジューラが現在クラスタにあるノードにスケジューリングできないPodやスケジューリングしようとしないPodを処理する手間を省くことができるということです。[cluster autoscaling](/docs/concepts/cluster-administration/cluster-autoscaling/)をアクティブにしている場合、スケジューリングゲートを使うとスケジューラの負荷を減らせるだけでなく、コストも節約できます。スケジューリングゲートがなければ、オートスケーラは起動する必要のないノードを起動してしまうかもしれません。
+重要なのは、これらのPodをスケジューリング対象外としてマークすることで、スケジューラが現在クラスタにあるノードにスケジューリングできないPodやスケジューリングしようとしないPodを処理する手間を省くことができるということです。[cluster autoscaling](https://kubernetes.io/docs/concepts/cluster-administration/cluster-autoscaling/)をアクティブにしている場合、スケジューリングゲートを使うとスケジューラの負荷を減らせるだけでなく、コストも節約できます。スケジューリングゲートがなければ、オートスケーラは起動する必要のないノードを起動してしまうかもしれません。
 
 Kubernetes v1.30では、Podの`.spec.schedulingGates`を指定（または削除）することで、Podがスケジューリングの対象となる準備が整うタイミングを制御できます。これは安定した機能であり、現在では正式にPodのKubernetes API定義の一部となっています。
 
@@ -81,11 +81,11 @@ _これは、v1.30リリース後にベータ版となった改良点の一部�
 
 v1.30リリース後、これはベータ版になりました（ただし、この機能を使用するには、明示的に有効の設定にする必要があります）。
 
-Linuxでは、サービスログがjournald経由で利用可能であることが前提です。Windowsでは、サービスログはアプリケーション・ログ・プロバイダで利用可能であることが前提です。ログは、`/var/log/` (Linux)または`C:¥varlog¥log` (Windows)内のファイルを読むことでも利用できます。詳細については、[log query](/docs/concepts/cluster-administration/system-logs/#log-query) ドキュメントを参照してください。
+Linuxでは、サービスログがjournald経由で利用可能であることが前提です。Windowsでは、サービスログはアプリケーション・ログ・プロバイダで利用可能であることが前提です。ログは、`/var/log/` (Linux)または`C:¥varlog¥log` (Windows)内のファイルを読むことでも利用できます。詳細については、[log query](https://kubernetes.io/docs/concepts/cluster-administration/system-logs/#log-query) ドキュメントを参照してください。
 
 ### CRD validation ratcheting ([SIG API Machinery](https://github.com/kubernetes/community/tree/master/sig-api-machinery))
 
-この動作を使用するには、`CRDValidationRatcheting` [feature gate](/docs/reference/command-line-tools-reference/feature-gates/)を有効にする必要があります。そうすることであなたのクラスターのCustomResourceDefinitionsに対して適用されます。
+この動作を使用するには、`CRDValidationRatcheting` [feature gate](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/)を有効にする必要があります。そうすることであなたのクラスターのCustomResourceDefinitionsに対して適用されます。
 
 フィーチャーゲートを有効にすると、KubernetesはCustomResourceDefinitionsに対して _validation racheting_ を実装します。APIサーバーは、バリデーションに失敗したリソースの各部分が更新操作によって変更されていないことを条件に、更新後に有効でないリソースへの更新を受け入れます。言い換えると、無効なままのリソースの無効な部分は、すでに間違っている必要があります。このメカニズムを使用して、有効なリソースを無効となるように更新することはできません。
 
@@ -99,19 +99,19 @@ Linuxでは、サービスログがjournald経由で利用可能であること�
 
 ### Make Kubernetes aware of the LoadBalancer behaviour ([SIG Network](https://github.com/kubernetes/community/tree/master/sig-network))
 
-`LoadBalancerIPMode` フィーチャーゲートがベータ版となり、デフォルトで有効になりました。この機能により、`type` が `LoadBalancer` に設定されたサービスの `.status.loadBalancer.ingress.ipMode` を設定することができます。`.status.loadBalancer.ingress.ipMode`はロードバランサーのIPがどのように動作するかを指定する。これは `.status.loadBalancer.ingress.ip` フィールドも指定されている場合にのみ指定できます。詳細は、ロードバランサーステータスのIPMode指定](/docs/concepts/services-networking/service/#load-balancer-ip-mode) を参照してください。
+`LoadBalancerIPMode` フィーチャーゲートがベータ版となり、デフォルトで有効になりました。この機能により、`type` が `LoadBalancer` に設定されたサービスの `.status.loadBalancer.ingress.ipMode` を設定することができます。`.status.loadBalancer.ingress.ipMode`はロードバランサーのIPがどのように動作するかを指定する。これは `.status.loadBalancer.ingress.ip` フィールドも指定されている場合にのみ指定できます。詳細は、ロードバランサーステータスのIPMode指定](https://kubernetes.io/docs/concepts/services-networking/service/#load-balancer-ip-mode) を参照してください。
 
 ### Structured Authentication Configuration ([SIG Auth](https://github.com/kubernetes/community/tree/master/sig-auth))
 
 _構造化認証設定(Structured Authentication Configuration)_ はこのリリースでベータ版を卒業しました。
 
-Kubernetesには、より柔軟で拡張性の高い認証システムに対する長年のニーズがありました。現在のシステムは強力ではありますが、特定のシナリオで使用することを難しくするいくつかの制限があります。例えば、同じタイプの複数の認証子（例えば複数のJWT認証子）を使用したり、APIサーバーを再起動せずに設定を変更したりすることはできません。Structured Authentication Configuration 機能は、これらの制限に対処し、Kubernetesで認証を設定するための、より柔軟で拡張可能な方法を提供するための第一歩です。詳細は[Structured Authentication Configuration](/docs/reference/access-authn-authz/authentication/#using-authentication-configuration)を参照してください。
+Kubernetesには、より柔軟で拡張性の高い認証システムに対する長年のニーズがありました。現在のシステムは強力ではありますが、特定のシナリオで使用することを難しくするいくつかの制限があります。例えば、同じタイプの複数の認証子（例えば複数のJWT認証子）を使用したり、APIサーバーを再起動せずに設定を変更したりすることはできません。Structured Authentication Configuration 機能は、これらの制限に対処し、Kubernetesで認証を設定するための、より柔軟で拡張可能な方法を提供するための第一歩です。詳細は[Structured Authentication Configuration](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration)を参照してください。
 
 ### Structured Authorization Configuration ([SIG Auth](https://github.com/kubernetes/community/tree/master/sig-auth))
 
 _構造化認可設定(Structured Authorization Configuration)_ はこのリリースでベータ版を卒業しました。
 
-Kubernetesは、システム管理者や開発者の複雑な要件を満たすために進化し続けています。クラスタのセキュリティと完全性を保証するKubernetesの重要な側面は、APIサーバーの認可です。最近まで、kube-apiserverの認可チェーンの設定はやや堅苦しく、コマンドラインフラグのセットに制限され、認可チェーンでは単一のWebhookしか許可されていませんでした。このアプローチは機能的ではあるものの、クラスタ管理者が複雑で、きめ細かな認証ポリシーを定義するために必要な柔軟性を制限していました。最新の[構造化認可設定]機能は、複数のWebhookを有効にし、明示的な制御メカニズムを提供することに重点を置き、認可チェーンをより構造化された汎用的な方法で設定することで、この点に革命を起こすことを目的としています。詳細は[Structured Authorization Configuration](/docs/reference/access-authn-authz/authorization/#configuring-the-api-server-using-an-authorization-config-file)を参照してください。
+Kubernetesは、システム管理者や開発者の複雑な要件を満たすために進化し続けています。クラスタのセキュリティと完全性を保証するKubernetesの重要な側面は、APIサーバーの認可です。最近まで、kube-apiserverの認可チェーンの設定はやや堅苦しく、コマンドラインフラグのセットに制限され、認可チェーンでは単一のWebhookしか許可されていませんでした。このアプローチは機能的ではあるものの、クラスタ管理者が複雑で、きめ細かな認証ポリシーを定義するために必要な柔軟性を制限していました。最新の[構造化認可設定]機能は、複数のWebhookを有効にし、明示的な制御メカニズムを提供することに重点を置き、認可チェーンをより構造化された汎用的な方法で設定することで、この点に革命を起こすことを目的としています。詳細は[Structured Authorization Configuration](https://kubernetes.io/docs/reference/access-authn-authz/authorization/#configuring-the-api-server-using-an-authorization-config-file)を参照してください。
 
 ## New alpha features
 
@@ -149,13 +149,13 @@ Kubernetes v1.30から、インデックス化されたジョブは `.spec.succe
 
 ### Traffic distribution for services ([SIG Network](https://github.com/kubernetes/community/tree/master/sig-network))
 
-Kubernetes v1.30では、アルファ版としてKubernetes Service内に`spec.trafficDistribution`フィールドが導入されました。これにより、Serviceのエンドポイントにどのようにトラフィックをルーティングするかというpreferences を表現できるようになります。[トラフィックポリシー](/docs/reference/networking/virtual-ips/#traffic-policies)が厳密なセマンティック保証にフォーカスしているのに対して、トラフィックディストリビューションでは(トポロジー的に近いエンドポイントへのルーティングなど) _preferences_ を表現することができます。これはパフォーマンス、コスト、信頼性の最適化に役立ちます。このフィールドを使用するには、クラスタとそのすべてのノードに対して `ServiceTrafficDistribution` フィーチャーゲートを有効にします。Kubernetes v1.30では、以下のフィールド値がサポートされています： 
+Kubernetes v1.30では、アルファ版としてKubernetes Service内に`spec.trafficDistribution`フィールドが導入されました。これにより、Serviceのエンドポイントにどのようにトラフィックをルーティングするかというpreferences を表現できるようになります。[トラフィックポリシー](https://kubernetes.io/docs/reference/networking/virtual-ips/#traffic-policies)が厳密なセマンティック保証にフォーカスしているのに対して、トラフィックディストリビューションでは(トポロジー的に近いエンドポイントへのルーティングなど) _preferences_ を表現することができます。これはパフォーマンス、コスト、信頼性の最適化に役立ちます。このフィールドを使用するには、クラスタとそのすべてのノードに対して `ServiceTrafficDistribution` フィーチャーゲートを有効にします。Kubernetes v1.30では、以下のフィールド値がサポートされています： 
 
 `PreferClose`： クライアントにトポロジー的に近接したエンドポイントにトラフィックをルーティングする優先順位を示す。"topologically proximate" の解釈は実装によって異なり、同じノード、ラック、ゾーン、あるいはリージョン内のエンドポイントも含まれます。この値を設定することで、例えば負荷の均等な分散よりも近接性を最適化するなど、 実装が異なるトレードオフを行うことを許可できます。このようなトレードオフが許容できない場合、この値を設定すべきではありません。
 
 このフィールドが設定されていない場合、実装（kube-proxyなど）はデフォルトのルーティング戦略を適用します。
 
-詳細は[Traffic Distribution](/docs/reference/networking/virtual-ips/#traffic-distribution)を参照してください。
+詳細は[Traffic Distribution](https://kubernetes.io/docs/reference/networking/virtual-ips/#traffic-distribution)を参照してください。
 
 ### Storage Version Migration ([SIG API Machinery](https://github.com/kubernetes/community/tree/master/sig-api-machinery))
 
@@ -163,7 +163,7 @@ Kubernetes v1.30では、_StorageVersionMigration_ 用の新しい組み込みAP
 
 StorageVersionMigrationはアルファAPIで、以前は[out of tree](https://github.com/kubernetes-sigs/kube-storage-version-migrator)として提供されていました。
 
-詳細は[storage version migration](/docs/tasks/manage-kubernetes-objects/storage-version-migration)を参照してください。
+詳細は[storage version migration](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/storage-version-migration)を参照してください。
 
 
 ## Graduations, deprecations and removals for Kubernetes v1.30
@@ -205,7 +205,7 @@ Kubernetes v1.30リリースの全詳細は、我々の[リリースノート
 
 ## Availability
 
-Kubernetes v1.30は[GitHub](https://github.com/kubernetes/kubernetes/releases/tag/v1.30.0)からダウンロードできます。Kubernetesを使い始めるには、[対話型チュートリアル](/docs/tutorials/)をチェックするか、[minikube](https://minikube.sigs.k8s.io/)を使ってローカルのKubernetesクラスタを実行します。[kubeadm](/docs/setup/independent/create-cluster-kubeadm/)を使ってv1.30を簡単にインストールすることもできます。
+Kubernetes v1.30は[GitHub](https://github.com/kubernetes/kubernetes/releases/tag/v1.30.0)からダウンロードできます。Kubernetesを使い始めるには、[対話型チュートリアル](https://kubernetes.io/docs/tutorials/)をチェックするか、[minikube](https://minikube.sigs.k8s.io/)を使ってローカルのKubernetesクラスタを実行します。[kubeadm](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)を使ってv1.30を簡単にインストールすることもできます。
 
 ## Release team
 
