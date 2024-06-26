@@ -99,7 +99,7 @@ Linuxでは、サービスログがjournald経由で利用可能であること�
 
 ### Make Kubernetes aware of the LoadBalancer behaviour ([SIG Network](https://github.com/kubernetes/community/tree/master/sig-network))
 
-`LoadBalancerIPMode` フィーチャーゲートがベータ版となり、デフォルトで有効になりました。この機能により、`type` が `LoadBalancer` に設定されたサービスの `.status.loadBalancer.ingress.ipMode` を設定することができます。`.status.loadBalancer.ingress.ipMode`はロードバランサーのIPがどのように動作するかを指定する。これは `.status.loadBalancer.ingress.ip` フィールドも指定されている場合にのみ指定できます。詳細は、ロードバランサーステータスのIPMode指定](https://kubernetes.io/docs/concepts/services-networking/service/#load-balancer-ip-mode) を参照してください。
+`LoadBalancerIPMode` フィーチャーゲートがベータ版となり、デフォルトで有効になりました。この機能により、`type` が `LoadBalancer` に設定されたサービスの `.status.loadBalancer.ingress.ipMode` を設定することができます。`.status.loadBalancer.ingress.ipMode`はロードバランサーのIPがどのように動作するかを指定する。これは `.status.loadBalancer.ingress.ip` フィールドも指定されている場合にのみ指定できます。詳細は、[ロードバランサーステータスのIPMode指定](https://kubernetes.io/docs/concepts/services-networking/service/#load-balancer-ip-mode) を参照してください。
 
 ### Structured Authentication Configuration ([SIG Auth](https://github.com/kubernetes/community/tree/master/sig-auth))
 
