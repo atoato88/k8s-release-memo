@@ -16,7 +16,7 @@ Kubernetes v1.30のリリースでは、これまでのリリースと同様に�
 
 Kubernetes v1.30: *Uwubernetes*
 
-![Kubernetes 1.29 Mandala logo](https://kubernetes.io/images/blog/2024-04-17-kubernetes-1.30-release/k8s-1.30.png)
+![Kubernetes v1.30 Uwubernetes logo](https://kubernetes.io/images/blog/2024-04-17-kubernetes-1.30-release/k8s-1.30.png)
 
 Kubernetes v1.30はあなたのクラスタをよりかわいくする！
 
@@ -28,7 +28,7 @@ Kubernetesを構築した人たち、リリースする人たち、そしてす�
 
 UwU ♥️
 
-## Improvements that graduated to stable in Kubernetes v1.30 {#graduations-to-stable}
+## Improvements that graduated to stable in Kubernetes v1.30
 
 _これは、v1.30リリース後に安定版となった改良点の一部です。_
 
@@ -71,7 +71,7 @@ KubernetesレポはGoワークスペースを使用するようになりまし�
 
 変更の詳細とGoワークスペースが導入された理由については、[Using Go workspaces in Kubernetes](https://www.kubernetes.dev/blog/2024/03/19/go-workspaces-in-kubernetes/)をお読みください。
 
-## Improvements that graduated to beta in Kubernetes v1.30 {#graduations-to-beta}
+## Improvements that graduated to beta in Kubernetes v1.30
 
 _これは、v1.30リリース後にベータ版となった改良点の一部です。_
 
